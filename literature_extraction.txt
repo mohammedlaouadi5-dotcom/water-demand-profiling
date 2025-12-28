@@ -1,0 +1,45 @@
+LITERATURE REVIEW PDF EXTRACTION
+================================================================================
+
+1. 12429-Article Text-23463-1-10-20180716.pdf
+   Year: 2018
+   Title: 1st International WDSA / CCWI 2018 Joint Conference, Kingston, Ontario, Canada – July 23 -25, 2018
+   Abstract: With rising water scarcity, managing water resources efficiently is becoming more important.
+
+--------------------------------------------------------------------------------
+
+2. 73904_1.pdf
+   Year: 2013
+   Title: A novel mixed method smart metering approach to reconciling
+   Abstract: Studies have shown that householders’ perceptions of their water use are often not well
+
+--------------------------------------------------------------------------------
+
+3. A_Survey_of_User_Profiling_State-of-the-Art_Challe.pdf
+   Year: 2019
+   Title: See discussions, st ats, and author pr ofiles f or this public ation at : https://www .researchgate.ne t/public ation/336118867
+   Abstract: Advancements in information and communication technology, and online web users have
+
+--------------------------------------------------------------------------------
+
+4. CominolaEtAl_iEMSs201_eigenbehavior.pdf
+   Year: 2016
+   Title: International Environmental Modelling and Software Society (iEMSs)
+   Abstract: Developing effective demand-side management strategies is essential to meet
+
+--------------------------------------------------------------------------------
+
+5. Undermind - Survey-informed residential water end-use disaggregation segmentation and leak detection methods.pdf
+   Year: 2025
+   Title: UndermindREPORT CREATED ON15/11/2025
+   Abstract: 
+
+--------------------------------------------------------------------------------
+
+6. Water Resources Research - 2019 - Cominola - Data Mining to Uncover Heterogeneous Water Use Behaviors From Smart Meter Data.pdf
+   Year: 
+   Title: Data Mining to Uncover Heterogeneous Water Use
+   Abstract: Knowledge on the determinants and patterns of water demand for different consumers
+
+--------------------------------------------------------------------------------
+

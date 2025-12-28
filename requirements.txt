@@ -1,0 +1,38 @@
+# =============================================================================
+# Water Demand Behavioral Profiling - Python Dependencies
+# =============================================================================
+# Install with: pip install -r requirements.txt
+# =============================================================================
+
+# Core Scientific Computing
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# Machine Learning
+scikit-learn>=1.0.0
+
+# Explainable AI
+shap>=0.40.0
+
+# Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Statistical Analysis
+statsmodels>=0.13.0
+
+# Progress Bars
+tqdm>=4.62.0
+
+# PDF Processing (optional, for literature extraction)
+# PyPDF2>=2.0.0
+# pdfplumber>=0.7.0
+
+# Jupyter (optional, for notebooks)
+# jupyter>=1.0.0
+# notebook>=6.4.0
+
+# Testing (optional)
+# pytest>=7.0.0
+# pytest-cov>=3.0.0

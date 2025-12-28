@@ -1,0 +1,156 @@
+DETAILED LITERATURE EXTRACTION FOR MANUSCRIPT
+====================================================================================================
+
+
+====================================================================================================
+PAPER 1
+====================================================================================================
+
+Filename: 12429-Article Text-23463-1-10-20180716.pdf
+Title: 1st International WDSA / CCWI 2018 Joint Conference, Kingston, Ontario, Canada – July 23 -25, 2018
+Year: 2018
+Journal: 
+DOI: 
+
+Keywords: Water end -use segregation, Domestic water efficiency, Demand forecasting ., 1
+
+Methods: clustering, neural network, water demand, smart meter
+
+Abstract:
+With rising water scarcity, managing water resources efficiently is becoming more important. 
+Smart meters, provided they are of sufficient resolution, offer the po tential to understand how 
+people use water, to predict future demand, identify leakage and improve water efficiency . To 
+successfully perform water end -use segregation, considerable manual input  is currently needed. By 
+utilising survey data, it may be possi ble to remove some of the human effort and find end-uses 
+through pattern matchin g. In this paper, t he use of survey and flow data  show s a high distribution 
+of repeated patterns in single and multiple -chain flow events for a particular brand of dishwasher.
+
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+PAPER 2
+====================================================================================================
+
+Filename: 73904_1.pdf
+Title: with the copyright policy of the publisher. Please refer to the journal's website for access to the
+Year: 2013
+Journal: Journal of Cleaner Production
+DOI
+10
+DOI: 10.1016/j.jclepro.2011.09.007
+
+Keywords: smart meters, residential water consumption, water use behaviour, water use, beliefs
+
+Methods: water demand, smart meter
+
+Abstract:
+Studies have shown that householders’ perceptions of their water use are often not well 
+matched with their actual water use. There has been less research however, investigating 
+whether this bias is related to specific categories of end use and/or specific types of socio -
+demographic and socio- psychological household profiles. A high resolution smart metering 
+study producing a detailed end use event registry as well as psycho -social and socio -
+demographic surveys, stock inventory audits and self -reported water  diaries was completed 
+for 252 households located in South- east Queensland, Australia. The study examined the 
+contributions of end uses to total water use for each group that self -identified as “low”, 
+“medium” or “high” water users.  A series of univariate tests (i.e. ana
+
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+PAPER 3
+====================================================================================================
+
+Filename: A_Survey_of_User_Profiling_State-of-the-Art_Challe.pdf
+Title: See discussions, st ats, and author pr ofiles f or this public ation at : https://www .researchgate.ne t/public ation/336118867
+Year: 2019
+Journal: 
+DOI: 10.1109/ACCESS.2019.2944243
+
+Keywords: 
+
+Methods: clustering, machine learning, k-means, neural network, deep learning
+
+Abstract:
+Advancements in information and communication technology, and online web users have
+given attention to the virtual representation of each user, which is crucial for effective service personaliza-
+tion. Meeting users need and preferences is an ongoing challenge in service personalization. This issue can
+be addressed through the building of a comprehensive user proﬁle. A user proﬁle is the summary of the
+user’s interests, characteristics, behaviours, and preferences, while user proﬁling is the system of collecting,
+organizing and inferring the user proﬁle information. Many reviews on user proﬁling have been conducted
+but none focused on the effective proﬁle modeling process. Hence, this article aims to provide a review of
+the recent state-of-the-art approach to user proﬁling. These include
+
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+PAPER 4
+====================================================================================================
+
+Filename: CominolaEtAl_iEMSs201_eigenbehavior.pdf
+Title: aDepartment of Electronics, Information, and Bioengineering, Politecnico di Milano,
+Year: 2016
+Journal: 
+DOI: 
+
+Keywords: 
+
+Methods: clustering, machine learning, feature selection, k-means, water demand, smart meter, behavioral, segmentation, PCA, dimensionality reduction
+
+Abstract:
+Developing effective demand-side management strategies is essential to meet
+future residential water demands, pursue water conservation, and reduce the costs for
+water utilities. Y et, the effectiveness of water demand management strategies relies on
+our understanding of water consumers’ behavior and their consumption habits and rou-
+tines, which can be monitored through the deployment of smart metering technologies
+and the adoption of data analytics and machine learning techniques. This work con-
+tributes a novel modeling procedure, based on a combination of clustering and principal
+component analysis, which allows performing water users’ segmentation on the basis of
+their eigenbehaviors (i.e., recurrent water consumption behaviors) automatically identi-
+ﬁed from smart metered consumption
+
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+PAPER 5
+====================================================================================================
+
+Filename: Undermind - Survey-informed residential water end-use disaggregation segmentation and leak detection methods.pdf
+Title: Full search query: I want to find  studies on residential water profiling based on water consumption behaviors, covering methods for end-use disag-gregation, household/usage segmentation, and leak/anomaly detection from  Water Consumption Behavior Su
+Year: 2025
+Journal: 
+DOI: 
+
+Keywords: 
+
+Methods: clustering, machine learning, k-means, neural network, SHAP, explainable, interpretable, water demand, smart meter, behavioral, segmentation
+
+Abstract:
+
+
+----------------------------------------------------------------------------------------------------
+
+====================================================================================================
+PAPER 6
+====================================================================================================
+
+Filename: Water Resources Research - 2019 - Cominola - Data Mining to Uncover Heterogeneous Water Use Behaviors From Smart Meter Data.pdf
+Title: Germany,2School of Engineering and Built Environment, Griffith University, Gold Coast, Australia,3Cities Research
+Year: 
+Journal: 
+DOI: 
+
+Keywords: 
+
+Methods: clustering, machine learning, k-means, neural network, water demand, smart meter, behavioral, segmentation, PCA, dimensionality reduction
+
+Abstract:
+Knowledge on the determinants and patterns of water demand for different consumers
+supports the design of customized demand management strategies. Smart meters coupled with big data
+analytics tools create a unique opportunity to support such strategies. Yet, at present, the information
+content of smart meter data is not fully mined and usually needs to be complemented with water fixture
+inventory and survey data to achieve detailed cust omer segmentation based on end use water usage. In this
+paper, we developed a data-driven approach that extracts information on heterogeneous water end use
+routines, main end use components, and temporal characteristics, only via data mining existing smart
+meter readings at the scale of individual households. We tested our approach on data from 327 househol
+
+----------------------------------------------------------------------------------------------------

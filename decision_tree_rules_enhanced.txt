@@ -1,0 +1,147 @@
+ENHANCED DECISION TREE RULES
+============================
+
+RULE 1: Predict Moderate (C0)
+  Confidence: 0.0%
+  Coverage: 5857 samples (56.1%)
+  IF:
+    AND Boil-Water-Per-Week > 10.50
+    AND Boil-Water-Per-Week <= 44.50
+    AND Boil-Water-Per-Week > 13.50
+    AND Boil-Water-Per-Week <= 40.50
+
+RULE 2: Predict Conservers (C2)
+  Confidence: 0.1%
+  Coverage: 1968 samples (18.8%)
+  IF:
+    AND Boil-Water-Per-Week <= 10.50
+    AND Boil-Water-Per-Week <= 8.50
+    AND Kitchen-Energy-Use-KWh-Yearly <= 1136.00
+    AND Boil-Water-Per-Week <= 7.50
+
+RULE 3: Predict Profligate (C1)
+  Confidence: 0.1%
+  Coverage: 1088 samples (10.4%)
+  IF:
+    AND Boil-Water-Per-Week > 10.50
+    AND Boil-Water-Per-Week > 44.50
+    AND Boil-Water-Per-Week > 46.50
+    AND Wash-By-Hand-Per-Week > 5.90
+
+RULE 4: Predict Conservers (C2)
+  Confidence: 0.3%
+  Coverage: 300 samples (2.9%)
+  IF:
+    AND Boil-Water-Per-Week <= 10.50
+    AND Boil-Water-Per-Week > 8.50
+    AND Wash-By-Hand-Per-Week <= 10.60
+    AND Garden-Water-Frequency-Per-Week <= 1.70
+
+RULE 5: Predict Moderate (C0)
+  Confidence: 0.4%
+  Coverage: 252 samples (2.4%)
+  IF:
+    AND Boil-Water-Per-Week > 10.50
+    AND Boil-Water-Per-Week <= 44.50
+    AND Boil-Water-Per-Week > 13.50
+    AND Boil-Water-Per-Week > 40.50
+
+RULE 6: Predict Moderate (C0)
+  Confidence: 0.5%
+  Coverage: 195 samples (1.9%)
+  IF:
+    AND Boil-Water-Per-Week > 10.50
+    AND Boil-Water-Per-Week <= 44.50
+    AND Boil-Water-Per-Week <= 13.50
+    AND Wash-By-Hand-Per-Week > 7.30
+
+RULE 7: Predict Conservers (C2)
+  Confidence: 0.7%
+  Coverage: 139 samples (1.3%)
+  IF:
+    AND Boil-Water-Per-Week <= 10.50
+    AND Boil-Water-Per-Week <= 8.50
+    AND Kitchen-Energy-Use-KWh-Yearly <= 1136.00
+    AND Boil-Water-Per-Week > 7.50
+
+RULE 8: Predict Conservers (C2)
+  Confidence: 0.4%
+  Coverage: 115 samples (1.1%)
+  IF:
+    AND Boil-Water-Per-Week <= 10.50
+    AND Boil-Water-Per-Week > 8.50
+    AND Wash-By-Hand-Per-Week > 10.60
+    AND Kitchen-Energy-Use-KWh-Yearly <= 724.50
+
+RULE 9: Predict Moderate (C0)
+  Confidence: 0.9%
+  Coverage: 101 samples (1.0%)
+  IF:
+    AND Boil-Water-Per-Week <= 10.50
+    AND Boil-Water-Per-Week > 8.50
+    AND Wash-By-Hand-Per-Week > 10.60
+    AND Kitchen-Energy-Use-KWh-Yearly > 724.50
+
+RULE 10: Predict Moderate (C0)
+  Confidence: 0.6%
+  Coverage: 90 samples (0.9%)
+  IF:
+    AND Boil-Water-Per-Week > 10.50
+    AND Boil-Water-Per-Week <= 44.50
+    AND Boil-Water-Per-Week <= 13.50
+    AND Wash-By-Hand-Per-Week <= 7.30
+
+RULE 11: Predict Conservers (C2)
+  Confidence: 1.0%
+  Coverage: 70 samples (0.7%)
+  IF:
+    AND Boil-Water-Per-Week <= 10.50
+    AND Boil-Water-Per-Week > 8.50
+    AND Wash-By-Hand-Per-Week <= 10.60
+    AND Garden-Water-Frequency-Per-Week > 1.70
+
+RULE 12: Predict Profligate (C1)
+  Confidence: 0.9%
+  Coverage: 59 samples (0.6%)
+  IF:
+    AND Boil-Water-Per-Week > 10.50
+    AND Boil-Water-Per-Week > 44.50
+    AND Boil-Water-Per-Week <= 46.50
+    AND Wash-By-Hand-Per-Week <= 15.20
+
+RULE 13: Predict Conservers (C2)
+  Confidence: 1.2%
+  Coverage: 56 samples (0.5%)
+  IF:
+    AND Boil-Water-Per-Week <= 10.50
+    AND Boil-Water-Per-Week <= 8.50
+    AND Kitchen-Energy-Use-KWh-Yearly > 1136.00
+    AND Boil-Water-Per-Week > 2.50
+
+RULE 14: Predict Conservers (C2)
+  Confidence: 1.9%
+  Coverage: 54 samples (0.5%)
+  IF:
+    AND Boil-Water-Per-Week <= 10.50
+    AND Boil-Water-Per-Week <= 8.50
+    AND Kitchen-Energy-Use-KWh-Yearly > 1136.00
+    AND Boil-Water-Per-Week <= 2.50
+
+RULE 15: Predict Profligate (C1)
+  Confidence: 1.6%
+  Coverage: 53 samples (0.5%)
+  IF:
+    AND Boil-Water-Per-Week > 10.50
+    AND Boil-Water-Per-Week > 44.50
+    AND Boil-Water-Per-Week <= 46.50
+    AND Wash-By-Hand-Per-Week > 15.20
+
+RULE 16: Predict Profligate (C1)
+  Confidence: 1.8%
+  Coverage: 51 samples (0.5%)
+  IF:
+    AND Boil-Water-Per-Week > 10.50
+    AND Boil-Water-Per-Week > 44.50
+    AND Boil-Water-Per-Week > 46.50
+    AND Wash-By-Hand-Per-Week <= 5.90
+

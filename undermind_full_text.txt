@@ -1,0 +1,1294 @@
+UNDERMIND LITERATURE SEARCH - FULL TEXT EXTRACTION
+====================================================================================================
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 1/29Research Report on
+Survey-informed residential water end-use disaggregation, segmen-
+tation, and leak detection methods
+Full search query: I want to find  studies on residential water profiling based on water consumption behaviors, covering methods for end-use disag-gregation, household/usage segmentation, and leak/anomaly detection from  Water Consumption Behavior Survey Data, comparing performance, generalizability, interpretability, and practical implications across single- and multifamily settings and climates
+This is a Free Tier Undermind report. Limited results are shown. For complete analysis, upgrade to Pro.
+Summary
+The search found very few studies that integrate residential Water Consumption Behavior Survey Data into end-use profiling—pri-
+marily [1,3]—while the bulk of the literature advances meter-only end-use disaggregation with limited behavior-based segmentation 
+[2] and virtually no evaluated household leak/anomaly detection, especially across multifamily contexts and multiple climates 
+[2,4,5,6,7,8,9,10,12,13,14,15].
+What best aligns with the stated goal
+•Direct survey–meter integration for end-use reconciliation:
+•Combined surveys and flow loggers to improve end-use segregation [1].
+•Mixed-method smart metering plus surveys to reconcile perceived vs actual end-use consumption [3].
+•Behavior-based segmentation from consumption patterns:
+•Eigenbehavior clustering over disaggregated, high-resolution data to segment households by dominant end-use routines 
+(shower, clothes washer, irrigation) [2].
+•Practical, interpretable disaggregation at medium resolution:
+•Rule-based/classical approaches functioning at 1-min sampling without household-specific parameters, validated across 
+two countries (Italy, Netherlands) [6,7].
+•Unsupervised K-means + probabilistic modeling at 1-min with domain knowledge, effective for faucets/toilets/showers but 
+challenged by multi-cycle appliances [12].
+•Open-source and deployment-oriented tooling:
+•Semisupervised open-source disaggregation tool [8] and open-source pipeline tested on U.S. datasets with anomaly 
+identification capability (not quantitatively evaluated in the available abstract) [15].
+•Edge-embedded learning-based classifier with on-site processing and comparable F1 to a model-based benchmark [5].
+End-use disaggregation: methods, performance, and resolution dependence
+•High-resolution, event-centric pipelines:
+•Hybrid unsupervised + ML (SOM/K-means pre-grouping; ANN/HMM recognition) achieving 86–94.2% accuracy on >100k 
+events across 252 Australian homes; foundational for downstream segmentation [9].
+•Unsupervised disaggregation on high-resolution meters to learn appliance motifs [10].
+•Supervised classification comparisons and synthetic labels:
+•RF and NN generally outperform SVM/LogReg on imbalanced data; balanced synthetic scenarios yield F1 H0.83–0.90; 
+LogReg offers speed/compute advantages [4].
+•Explainable models (XGBoost vs TabNet) show similar accuracy; XGBoost favored for robustness and computational 
+efficiency in a UK case study [13].
+•Medium-resolution feasibility and interpretability:
+•Rule-based disaggregation at 1-min resolution validated against intrusive submeters (4 households, Italy), demonstrating 
+feasibility with transparent logic [6].
+•Enhanced 1-min classification relying only on literature parameters achieves >90% average accuracy and low nRMSE 
+across Italy and the Netherlands, suggesting transferability without bespoke calibration [7].
+•
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 2/29Unsupervised/domain-knowledge approach at 1-min performs well for short/steady uses (faucet, toilet, shower), but 
+struggles on multi-cycle devices (washers/dishwashers), underscoring known signature complexity at coarser sampling 
+[12].
+•Model-based vs learning-based and edge deployment:
+•DTW + statistical bounds vs time-series classification show similar F1 (~71%); embedded deployment of the learn-
+ing-based method reaches ~72% with privacy and real-time benefits [5].
+•Open-source, semisupervised tools:
+•Publicly available tooling aims to improve reproducibility and accessibility; tested on anonymized high-resolution U.S. 
+datasets [8,15].
+Behavior survey integration: current use and opportunities
+•Evidence of integration:
+•Surveys combined with flow logging to improve segregation accuracy [1].
+•Mixed-method reconciliation of perceived vs actual end-use usage [3].
+•Largely absent in recent disaggregation:
+•Most studies mine meter data exclusively and do not operationalize survey variables (ownership, frequency, duration, 
+occupancy) as priors or covariates [2,4,5,6,7,8,9,10,12,13,14,15].
+•Implications:
+•There is a clear opportunity to incorporate behavior survey data as soft priors or covariates in HMM/FHMM, rule-based 
+thresholds, or semi-supervised clustering—particularly to bolster classification under sparse labels, coarser sampling 
+(e.g., AMI/1-min), and heterogeneous household stocks.
+Household/usage segmentation findings
+•Consumption-based segmentation:
+•Eigenbehavior analysis clusters households by dominant end-use routines and temporal characteristics, yielding three 
+actionable segments (shower-, clothes-washer-, irrigation-dominant) using 5-second data and prior disaggregation via 
+Autoflow [2].
+•Gaps:
+•No additional studies in the set tie segment membership directly to model parameters (e.g., mixture-of-experts) or integrate 
+survey-derived covariates in segmentation.
+Leak/anomaly detection status
+•Capability mentions without evaluated metrics:
+•Open-source tooling notes anomaly identification, but no household-level leak detection metrics (time-to-detect, false 
+alarm rate) are reported in the provided abstract [15].
+•Overall gap:
+•Disaggregation papers primarily motivate leak detection as an application; none provide evaluated household leak/anom-
+aly detection performance across resolutions or climates in this corpus [2,4,5,6,7,8,9,10,12,13].
+•Practical implication:
+•Utilities seeking leak analytics will need dedicated evaluation frameworks (e.g., MNF thresholds, change-point detection, 
+HMM absorbing leak states) integrated with end-use pipelines and stratified by sampling interval—currently not covered 
+by these references.
+Generalizability across settings and climates; single vs multifamily
+•Cross-country, single-family validations:
+•Italy and Netherlands cross-country validation at 1-min without household-specific parameters [7].
+•Large Australian datasets for high-resolution disaggregation [2,9]; UK robustness under noise [13]; U.S. Utah high-reso-
+lution tests [15].
+•Multifamily gap:
+•No multifamily-specific analyses, topology-aware modeling, or evaluation of shared/common-area flows and recirculation 
+confounders are present; methods and claims remain single-family-centric [2,5,6,7,9,10,11,12,13,15].
+•Climate/domain transfer:
+•
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 3/29While data span multiple regions, explicit domain adaptation or cross-climate transfer studies are limited; generalizability 
+claims are mostly implicit.
+Interpretability and practicality
+•Interpretability:
+•Rule-based/model-based approaches at 1-min emphasize transparent thresholds/features (flow rates, durations, cyclic 
+signatures) [5,6,7,12].
+•Explainability efforts using model class choice and feature attribution (XGBoost vs TabNet) for operational tradeoffs and 
+robustness [13].
+•Practical deployment:
+•Edge device implementations demonstrate on-site processing, privacy gains, and modest accuracy [5].
+•Open-source tools lower barriers to adoption and verification [8,15].
+•Medium-resolution compatibility without bespoke parameters enhances scalability for utilities lacking high-resolution 
+meters [6,7,12].
+•Synthetic labeling (CTGAN) can reduce ground truth needs, with performance sensitive to class imbalance [4].
+Key takeaways for your goal
+•Survey data use is rare but promising: only [1,3] explicitly integrate surveys with meter data; leveraging surveys as soft priors 
+could improve disaggregation and segmentation at coarser sampling and in heterogeneous contexts.
+•End-use disaggregation is mature at high resolution and increasingly feasible at 1-min with interpretable rules and literature-de-
+rived parameters, supporting broader utility deployment [6,7,9,12].
+•Behavior-based segmentation is demonstrated at scale via eigenbehavior clustering on high-resolution data [2], but integration 
+with survey covariates and parameterized models is an open opportunity.
+•Household leak/anomaly detection remains under-evaluated; methods should incorporate resolution-appropriate baselines 
+and change-point logic with standardized metrics—none are thoroughly assessed in this set [15].
+•Generalizability across climates is suggested by cross-country validations [7], but multifamily applicability is a major gap; 
+topology-aware models and meter metadata will be essential for transfer to multifamily settings.
+Practical recommendations for next steps
+•Prioritize survey-integrated modeling:
+•Incorporate survey-derived appliance ownership, reported frequencies/durations, and occupancy as priors/covariates in 
+HMM/FHMM or semi-supervised clustering; compare against meter-only baselines to quantify gains [1,3].
+•Expand to multifamily datasets:
+•Evaluate end-use separability and leak detection with unit-level or stack-level meters; encode topology constraints 
+(recirculation, common-area flows) in rule-based or probabilistic frameworks.
+•Establish leak detection evaluation:
+•Implement MNF baselines, state persistence, and change-point detection with resolution-stratified metrics (time-to-detect, 
+false alarms, volumetric loss) within disaggregation pipelines; benchmark across climates and seasons.
+•Test domain adaptation:
+•Perform cross-climate/building-stock transfer analyses for 1-min rule-based models [6,7,12] versus high-resolution ML 
+[2,9,10]; use feature standardization and transfer learning.
+•Combine open-source and edge-ready tools:
+•Build on [8,15] and edge implementations [5] to deploy interpretable, privacy-preserving analytics; include human-au-
+ditable event logs and explainability (e.g., SHAP for duration/flow/cadence features) [13].
+Categories
+Scope-aligned comparative overview
+•The included corpus predominantly addresses end-use disaggregation from residential smart meters with limited explicit 
+integration of Water Consumption Behavior Survey Data. Only two studies clearly combine surveys with meter data to 
+reconcile perceived vs actual usage or improve disaggregation [1,3]. Most disaggregation works are survey-independent 
+[2,4,5,6,7,8,9,10,12,13,14,15].
+•
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 4/29Behavioral segmentation using consumption patterns (not demographics) is directly pursued in one high-resolution study [2]; 
+others focus on event classification without customer segmentation.
+•Household leak/anomaly detection at the consumption-behavior level is largely not evaluated as a primary outcome. One 
+open-source tool describes anomaly identification capability but provides no evaluation details in the provided abstract [15]; 
+other works frame disaggregation as enabling anomalies but do not report leak metrics.
+•Coverage across settings and climates: disaggregation studies span Australia, Italy, Netherlands, UK, and USA datasets 
+[2,6,7,9,10,13,15], but are overwhelmingly single-family; multifamily-specific challenges and evaluations are absent.
+•Interpretability and practicality vary: rule-based and model-based methods emphasize parameter transparency and applicabil-
+ity at 1-min resolution [5,6,7,12], while supervised/unsupervised ML works target high-resolution data with higher accuracy but 
+heavier data/training needs [2,4,9,10,13]. Edge deployment and open-source reproducibility are showcased in [5] and [8,15], 
+respectively.
+Comparative table: Methods, data, evaluation, and deployment
+StudyEnd-use disaggrega-tion approachData resolu-tion & scaleSurvey data used/inte-gratedSegmenta-tion (behav-ior-based)Leak/anom-aly detection (household)Evaluation metrics reportedInterpretabili-ty & practicalitySetting & cli-mate notes
+[1] (2018)Combined surveys with flow logger; goal: improve end-use segregationNot specified (flow logger)Yes—surveys combined with logger dataNot reportedNot reportedNot report-ed in provided entryEmphasizes hybrid survey–meter reconciliationContext not specified
+[2] (2019)Disaggrega-tion via Autoflow; clustering via eigenbehav-ior analysis5 s; 327 house-holds (Aus-tralia)No (explicit-ly data-mined without sur-veys)Yes—3 clus-ters (show-er, clothes washing, irri-gation)Not evaluatedCluster characteriza-tion; disaggrega-tion performed but metrics not provided in abstractData-driven; leverages existing disaggrega-tion toolSingle-family; Australian context
+[3] (2013)Mixed-method smart metering + surveys to reconcile perceived vs actual end-useIntru-sive/smart metering; scale not stated in provided entryYes—surveys central to reconciling differencesNot explicitNot explicitNot report-ed in provided entryFocus on survey–meter reconciliation; interpretabili-ty via mixed methodsAustralian residential context likely
+[4] (2024)Supervised classification: RF, SVM, Logistic Regression, NN; synthetic labels via CTGANActual + syn-thetic labeled datasets; res-olution not stated in ab-stractNoNoNot evaluatedF1 0.83–0.90 (balanced synthetic); RF best overall; LogReg fastest; SVM/LogReg inferior on imbalanced dataTrade-off analysis: accuracy vs compute; synthetic labeling reduces training burdenDataset ori-gin not spec-ified; gener-al supervised ML compari-son
+[5] (2024)Model-based (DTW + statistical bounds features) vs learn-ing-based time-series classification without event detectionFlow sensor; comparative computation-al + experimental; resolution suitable for embedded; scale not explicitly detailedNoNoNot evaluatedF1: LB 71.73%, MB 71.04%; em-bedded LB 72.01%LB deploy-able on edge device; pri-vacy and on-site pro-cessing em-phasizedGeneral residential; deploy-ment-oriented
+[6] (2021)Rule-based automated disaggrega-tion at 1-min resolution; validated against intrusive submetering1-min; 4 households; 2 months; ItalyNoNoNot evaluatedValidation vs end-use sub-meters; qual-itative “effi-cient” perfor-mance; nu-meric metrics not in abstractHigh interpretabili-ty; 1-min feasibility demonstratedSingle-family; Italian setting
+[7] (2024)Enhanced automated classification at 1-min, 1-min; 14 households; NoNoNot evaluatedAvg accuracy >90%; High interpretabili-ty; zero house-Cross-coun-try (Italy, 
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 5/29relying on literature parameter valuesItaly and Netherlandsnormalized RMSE <0.06hold-specific parameteriza-tion; medium-reso-lution practicalityNetherlands); single-family
+[8] (2023)Open-source semisuper-vised disaggrega-tion/classifica-tion toolNot specified in entryNo (not indi-cated)NoNot evaluatedNot detailed in entryOpen-source; reproducible; bridges proprietary gapGeneral resi-dential
+[9] (2018)Autoflow v3.1: hybrid SOM + K-means pre-grouping, then ANN/HMM pattern recognitionHigh-res; >100,000 events; 252 homes (Australia)NoNoNot evaluatedAccuracy 86–94.2% across end usesMature toolchain; improved accuracy via unsupervised pre-groupingSingle-family; Australian
+[10] (2021)Unsuper-vised ML for high-res smart meter disaggrega-tionHigh-resolu-tion; residential sectorNoNoNot evaluatedNot provided in abstract; methodologi-cal framingUnsuper-vised generaliza-tion; leverages patternsResidential; likely single-family
+[11] (2020)System description (Autoflow) combining metering and ML; functions include disaggrega-tion, forecasting, recommenda-tionsNot specifiedNoNoMentions anomaly identification capabilityNot reportedPractical system-level framingGeneral resi-dential
+[12] (2025)Unsuper-vised K-means + probabilistic modeling at 1-min; zero additional data1-min; general utility contextNoNoNot evaluatedPractical for faucets/toi-lets/showers; struggles with washers/dish-washersMedium-reso-lution practicality; domain-knowl-edge guidedGeneral resi-dential
+[13] (2024)Supervised ML comparison: XGBoost vs TabNet; explainability assessedReal UK households; noise augmentationNoNoNot evaluatedSimilar performance across uses; XGBoost best balance; robust under noisePractical compute; explainability exploredUK residential
+[14] (2013)Intelligent pattern recognition to automate end-use categorizationNot detailed here; founda-tionalNoNoNot evaluatedNot provided hereFoundational method referenced by multipleGeneral resi-dential
+[15] (2021)Open-source Python disaggrega-tion/classifica-tion; tested on Utah datasets; mentions anomaliesHigh tempo-ral resolution; 31 dwellings in Logan and Provi-dence, UtahNoNoCapability noted; no leak metrics in entryAccuracy across meter types; details truncatedReproducible code; dataset anonymizedUSA residen-tial
+Survey integration and household segmentation
+•Explicit survey integration for modeling or reconciliation:
+•Combined surveys and flow logger data to improve segregation accuracy [1].
+•Mixed-method approach reconciling perceived vs actual end-use consumption using surveys alongside metering [3].
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 6/29•Survey discussion without use: one study highlights need for fixture inventory/survey data but performs segmentation purely 
+from smart meter data [2].
+•Behavioral segmentation:
+•Eigenbehavior-based clustering of households into routine-driven clusters (primary end uses: shower, clothes washing, 
+irrigation) using 5 s meter data [2].
+•No other studies explicitly perform segmentation tied to behavioral features or integrate segment membership into model 
+parameters in the provided entries.
+End-use disaggregation performance and resolution dependencies
+•High-resolution (d5 s) approaches:
+•Autoflow v3.1 with hybrid unsupervised pre-grouping reached 86–94.2% event categorization accuracy on >100k events 
+across 252 homes [9].
+•Unsupervised disaggregation at high resolution is pursued, methodological details provided, but quantitative performance 
+not in abstract [10].
+•Medium-resolution (1-min) approaches:
+•Rule-based automated disaggregation validated against submeters, demonstrating feasibility at 1-min with small sample 
+(4 households) [6].
+•Enhanced automated classification (literature parameters only) achieved >90% average accuracy and nRMSE <0.06 
+across 14 households in Italy and the Netherlands [7].
+•Unsupervised K-means + probabilistic modeling achieved practical performance for faucets/toilets/showers but struggled 
+with washing machines/dishwashers, emphasizing limitations at 1-min [12].
+•Supervised classifiers and synthetic labels:
+•RF, NN outperform SVM/LogReg under imbalanced conditions; balanced synthetic datasets yield F1 0.83–0.90 across 
+models; LogReg provides fastest execution [4].
+•Model-based vs learning-based comparison and embedded deployment:
+•DTW/statistical bounds (model-based) vs time-series classification (learning-based) report similar F1 (H71%); embedded 
+LB achieves H72% F1 with on-site processing [5].
+Leak/anomaly detection coverage and evidence gaps
+•Explicit household-level leak/anomaly detection metrics (time-to-detect, false alarm rates) are not reported in the provided 
+abstracts of the disaggregation-focused studies [2,4,5,6,7,8,9,10,12,13].
+•The open-source tool [15] mentions anomaly identification capability in the broader framing but does not report evaluation 
+results for leaks/anomalies in the provided entry.
+•As such, the corpus does not enable comparative leak performance assessment; leak detection remains an implied potential 
+application of disaggregated data rather than an evaluated outcome in these references.
+Generalizability, interpretability, and practical deployment
+•Generalizability across settings/climates:
+•Cross-country validation at 1-min (Italy and Netherlands) indicates potential transfer without household-specific parame-
+ters [7].
+•Multiple Australian datasets with large samples at high resolution underpin Autoflow improvements [2,9].
+•UK case study with noise robustness for supervised ML [13].
+•USA Utah datasets used for open-source tool testing [15].
+•No studies in the list explicitly address multifamily complexities; studies are predominantly single-family.
+•Interpretability:
+•Rule-based and model-based methods offer transparent feature/threshold logic (flow, duration, DTW bounds), aiding 
+interpretability [5,6,7,12].
+•Supervised ML comparisons include explainability considerations (XGBoost vs TabNet) [13]; RF feature interpretability 
+typical but not detailed in abstract [4].
+•Practical deployment:
+•Edge device implementation demonstrated for learning-based method with real-time processing and privacy benefits [5].
+•Open-source, reproducible tools lower barriers to verification and reuse [8,15].
+•Medium-resolution feasibility without household-specific parameters reduces data requirements [7,12].
+•Synthetic labeling via CTGAN reduces ground truth collection burden but may affect realism; performance varies with 
+class imbalance [4].
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 7/29Focused comparison of unique contributions
+•Survey–meter integration for end-use reconciliation and improved segregation:
+•[1] and [3] uniquely incorporate survey data, directly addressing the “perceived vs revealed” gap; this is central to the 
+search goal’s emphasis on behavior surveys.
+•Behavioral segmentation from consumption motifs:
+•[2] uniquely performs consumption-based segmentation, isolating dominant end-use routines and diurnal characteristics 
+without survey inputs.
+•Medium-resolution disaggregation with high interpretability and transferability:
+•[7] and [12] demonstrate high accuracy or practical coverage at 1-min using literature parameters or domain knowledge, 
+highlighting viability for utilities lacking high-resolution infrastructure.
+•Comparative model benchmarking and deployment:
+•[4] provides a modern supervised benchmarking with synthetic labels and compute tradeoffs.
+•[5] contrasts model-based vs learning-based and demonstrates edge deployment.
+•[9] advances a mature hybrid pipeline increasing accuracy at scale.
+Summary table: Alignment with the search goal dimensions
+Dimension Strongly covered Partially covered Not covered / gaps
+Use of Water Consumption Be-havior Survey Data in modelingSurvey–meter integration for end-use reconciliation [1,3]Discussion of surveys’ role but not used [2]Most disaggregation works do not use surveys [4,5,6,7,8,9,10,12,13,14,15]
+End-use disaggregation methods Extensive across rule-based, model-based, supervised/unsupervised [2,4,5,6,7,8,9,10,12,13,14,15]Medium-resolution viability [6,7,12]—
+Household/usage segmentation Eigenbehavior clustering from smart meter data [2]— No other behavioral segmentation tied to model parameters
+Leak/anomaly detection (house-hold-level)Capability noted without metrics [15]— No explicit leak detection eval-uation metrics across studies [2,4,5,6,7,8,9,10,12,13]
+Cross-setting (single vs multifami-ly)Single-family across multiple countries [2,6,7,9,10,13,15]— Multifamily-specific evaluations absent
+Cross-climate/domain transfer Cross-country (Italy–Netherlands) [7]; Australia [2,9]; UK [13]; USA [15]— Explicit domain adaptation/gener-alizability analyses limited
+Interpretability High for rule-based/model-based [5,6,7,12]; explainability for XG-Boost/TabNet [13]RF interpretability implied [4] Some unsupervised works lack explicit interpretability discussion in abstracts [10]
+Practical implications (compute, edge, open-source)Edge processing demonstrated [5]; open-source tools [8,15]; medi-um-res deployment [7,12]Synthetic labels for training effi-ciency [4]—
+Implications for the stated goal
+•To fully meet the goal—comparative performance, generalizability, interpretability, and practical implications across single- and 
+multifamily settings and climates, with survey-informed modeling—future synthesis should integrate:
+•Survey-informed priors and covariates into disaggregation and segmentation models, building on [1,3], and evaluate gains 
+vs meter-only baselines.
+•Multifamily-specific datasets and leak/anomaly detection evaluations with resolution-appropriate metrics, which are 
+currently missing in this corpus.
+•Cross-climate/domain adaptation experiments to assess transferability of medium-resolution rule-based approaches 
+[7,12] vs high-resolution ML pipelines [2,9,10,4,13].
+•Practical deployment pathways combining open-source tools [8,15] with edge-capable classifiers [5] for privacy-preserv-
+ing, scalable utility implementations.
+Timeline
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 8/29Historical arc of residential water enduse profiling (2013–2025)
+•2013: Dual foundations in pattern recognition and mixed methods
+•Early automated event categorization with intelligent pattern recognition laid the technical groundwork for enduse 
+signature matching, using features of duration, flow, and cyclic patterns at high resolutions [14].
+•A contemporaneous mixed-method study explicitly reconciled perceived (survey) vs actual (metered) enduse consump-
+tion, foregrounding the methodological need to bridge self-reports with revealed behavior—a theme highly aligned to 
+behavior survey integration even though details are sparse in the record [3].
+•2018–2021: Tooling, scalability, and unsupervised learning
+•The Autoflow lineage matured: improved accuracy via hybrid clustering (SOM + Kmeans) before pattern recognition 
+(ANN/HMM), scaled across hundreds of homes, and positioned as a practical, semi-automated pipeline for utilities [9,11].
+•An explicit “surveys + flow loggers” approach was proposed to improve enduse segregation, indicating ongoing recognition 
+of survey data’s value, albeit with limited uptake and documentation in this set [1].
+•Unsupervised learning approaches entered the enduse space, disaggregating highresolution smart meter data without 
+labels to identify appliance enduses and support conservation targeting [10].
+•Cyberinfrastructure advances emphasized openness and reproducibility with an opensource, semisupervised disaggre-
+gation tool tested on Utah datasets, addressing the prior opacity of proprietary methods [15,8].
+•2019: Behaviordriven segmentation from smart meter data
+•Segmentation based on “eigenbehavior” clustered households by dominant enduse routines (shower, clothes washing, 
+irrigation) using 5s data and disaggregated events (Autoflow), explicitly linking consumption patterns to tailored demand 
+management without requiring survey covariates at model time [2].
+•2021–2025: Comparative evaluation, midresolution feasibility, and edge deployment
+•Rulebased disaggregation at 1min resolution proved feasible and interpretable, validated against intrusive submetering, 
+showing robust accuracy without householdspecific parameters [6]. Subsequent work generalized with literatureonly 
+enduse parameters across Italy and the Netherlands, demonstrating >90% average accuracy at 1min and supporting 
+transferability when highresolution is unavailable [7].
+•Unsupervised/semisupervised methods pushed midresolution disaggregation (1min) with Kmeans and probabilistic 
+modeling, acknowledging persistent challenges for multicycle devices (washers/dishwashers)—a known hard class at 
+coarser sampling [12].
+•Comparative algorithm studies benchmarked supervised classifiers (RF, SVM, logistic regression, neural networks) using 
+both measured and synthetic labels, systematically quantifying performance vs execution time; RF and NN dominated 
+accuracy while logistic regression offered speed, especially under class imbalance [4].
+•Modelbased vs learningbased pipelines were contrasted, and embedded edge implementations demonstrated feasibility 
+and privacy benefits with similar accuracy (~72% F1), marking a practical milestone toward utility deployment [5].
+•Comparative work on explainable models (XGBoost vs TabNet) explored tradeoffs between performance, computational 
+cost, and robustness to noise, with XGBoost slightly favored operationally [13].
+Evolving concepts and methodological shifts
+•From handcrafted signatures to hybrid ML
+•Early signaturebased pattern recognition established fixturespecific heuristics [14]; by 2018, hybrid pipelines combined 
+clustering and ANN/HMM to raise accuracy and scalability [9].
+•Unsupervised learning reduced dependence on labeled ground truth, aligning with utilities’ data constraints and edging 
+closer to “zero additional data” paradigms [10,12].
+•Semisupervised, open-source tooling addressed reproducibility and code/data availability gaps, enabling broader verifi-
+cation and adaptation [8,15].
+•From highresolution dependence to mediumresolution practicality
+•A notable trend is making enduse disaggregation work at 1min intervals, a resolution closer to many commercial meters, 
+by emphasizing interpretable rule sets and literature-based parameters, improving generalizability across contexts without 
+bespoke calibration [6,7,12].
+•This supports wider utility adoption and edge/onprem deployment with acceptable accuracy [5].
+•Systematic benchmarking and interpretability emphasis
+•Comparative evaluations across classifiers, including execution time and class imbalance effects, normalized the reporting 
+of F1 scores and operational tradeoffs [4,5,13].
+•Interpretability gained attention via rule transparency and model choice (e.g., XGBoost) conducive to feature attribution, 
+while deep models were assessed for explainability and reliability under noisy data [13].
+•Segmentation as behaviorcentric analytics
+•
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 9/29Eigenbehavior-based customer clustering demonstrated how disaggregated enduse patterns inform actionable segmen-
+tation, enabling targeted interventions (e.g., shower vs irrigation dominant profiles) without explicit survey inputs at runtime 
+[2].
+Coverage of settings and climates; gaps relative to the goal
+•Settings
+•The corpus is predominantly singlefamily households with individual meters; crossunit multifamily complexities 
+(shared/stacked plumbing, common areas, recirculation) are not substantively evaluated in these papers, signaling a 
+major gap for multifamily applicability and topology-aware modeling [2,5,6,7,9,10,11,12,13,15].
+•Climates and regions
+•Studies span Australia, USA, Italy, Netherlands, and the UK, implying diversity in fixture codes and outdoor use, but explicit 
+crossclimate generalizability tests or domain adaptation analyses remain limited [2,5,6,7,9,10,11,12,13,15].
+•Leak/anomaly detection
+•While multiple papers motivate disaggregation for anomaly/leak identification, dedicated householdlevel leak detection 
+methods, metrics (timetodetect, false alarm rate), and integration with enduse models are largely absent from this set; 
+they remain a conspicuous future need [5,8,10,15].
+•Survey integration
+•Despite early recognition of survey value to reconcile perceived vs actual use [3] and a specific attempt to combine survey 
+and logger data [1], most recent methods minimize or avoid survey reliance, favoring purely data-driven approaches. The 
+envisioned role of behavior surveys as priors/covariates in HMM/FHMM or segmentation is not operationalized in these 
+later papers, highlighting an integration gap [2,4,5,6,7,8,9,10,11,12,15].
+Key contributor clusters and sustained impact
+•Nguyen/Autoflow lineage
+•Foundational pattern recognition [14] and subsequent Autoflow advances incorporating clustering and ML, with broader 
+programmatic framing (“Next Generation ML”) mark a sustained thread driving highresolution disaggregation and practical 
+tooling [9,11,14].
+•Impact: standardized event detection/classification pipelines, large Australian datasets, and influence on segmentation 
+approaches using Autoflow outputs [2].
+•Stillwell and collaborators
+•Advanced unsupervised enduse disaggregation for highresolution meters and led comparative supervised classification 
+studies, pushing methodological rigor and benchmarking under real and synthetic labels [10,4].
+•Mazzoni/Franchini group
+•Pioneered interpretable, rulebased disaggregation at 1min resolution with crosscountry validation, demonstrating practi-
+cality without household-specific parameters and catalyzing the midresolution feasibility trend [6,7].
+•Attallah/Bastidas Pacheco
+•Opensource, semisupervised tooling addressing reproducibility and accessibility gaps, enabling the community to build 
+on transparent codebases and anonymized datasets [8,15].
+•Cominola/Castelletti
+•Introduced eigenbehavior segmentation over disaggregated events at scale, crystallizing behaviorcentric clustering that 
+informs program targeting without survey dependence [2].
+•Emerging practitioners in comparative and edge analytics
+•Pavlou/Polycarpou on MB vs LB comparison and edge deployment [5]; Pradeep/Bakeev on explainability/robustness of 
+ML architectures [13]; Pelekanos/Makropoulos on unsupervised midresolution methods [12]. Collectively, they broadened 
+the field’s operational and interpretability horizons.
+Trends and their significance
+•Practical deployment focus
+•Movement toward edgecapable, privacy-preserving implementations [5], midresolution compatibility [6,7,12], and 
+open-source reproducibility [8,15] signals readiness for utility-scale pilots beyond research prototypes.
+•Interpretability and generalizability
+•Preference for rule-based or tree ensembles when operating at coarser resolutions reflects an interpretability-general-
+izability tradeoff, with literature-derived parameterization enabling crosscontext transfer without perhousehold calibration 
+[6,7,12,13].
+•Reduced dependence on labeled ground truth
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 10/29•Unsupervised/semi-supervised approaches tackle scarce labels, a chronic bottleneck in enduse studies, making methods 
+more scalable [8,10,12].
+•Behavior segmentation as a bridge to program design
+•Clustering on disaggregated routines provides a viable route to customer segmentation and tailored interventions, even 
+in the absence of integrated survey data [2].
+Outlook: What this suggests about the future of the field
+•Integrating surveys as soft priors
+•Given early recognition of survey–meter reconciliation [3,1] yet limited operational use recently, expect Bayesian or 
+semi-supervised frameworks that treat survey variables (ownership, frequency, duration, occupancy) as soft constraints 
+to improve classification and segmentation under sparse labels and coarser sampling, especially in multifamily contexts.
+•Multifamily and topology-aware profiling
+•The paucity of multifamily studies implies a next wave focusing on meter topology metadata, recirculation confounders, 
+and common-area flows, likely via FHMMs or rulebased constraints with domain adaptation for building stock differences.
+•Leak/anomaly detection integration
+•With disaggregation maturing, explicit household leak detection modules (MNF baselines, change-point detection, 
+absorbing leak states) and standardized metrics will likely be embedded within enduse pipelines, evaluated at multiple 
+resolutions and climates.
+•Crossclimate/domain adaptation and transfer learning
+•Expect more explicit crossclimate benchmarking and adaptation (feature standardization, transfer learning) to substantiate 
+generalizability claims, building on midresolution successes [6,7,12] and comparative ML studies [4,5,13].
+•Continued emphasis on open, interpretable, and edgeready tools
+•The trajectory toward open-source, interpretable, and computationally efficient models that run on embedded devices 
+suggests utility partnerships and regulatory acceptance will grow, particularly when combined with transparent event logs 
+and explainability [5,8,13,15].
+Foundational Work
+Which papers form the foundational references on this topic?
+The below table shows the resources that are most often cited by the relevant papers on this topic. This is measured by the reference 
+rate, which is the fraction of relevant papers that cite a resource. Use this table to determine the most important core papers to be 
+familiar with if you want to deeply understand this topic. Some of these core papers may not be directly relevant to the topic, but 
+provide important context.
+Ref.Reference RateTitle Cited By These Relevant Papers
+[87]0.44Benefits and challenges of using smart meters for advancing residential water demand modeling and management: A review[1, 2, 6, 9, 10, 17]
+[33]0.39Intelligent autonomous system for residential water end use classifica-tion: Autoflow[1, 2, 6, 9, 12]
+[17]0.36Is smart water meter temporal resolution a limiting factor to residential water end-use classification? A quantitative experimental analysis[4, 12, 13]
+[45]0.35Implications of data sampling resolution on water use simulation, end-use disaggregation, and demand management[2, 4, 6, 11, 16, 17]
+[38]0.27A Longitudinal Study of Pressure Sensing to Infer Real-World Water Usage Events in the Home[1, 6, 9, 10, 17]
+[48]0.27Green Smart Technology for Water (GST4Water): Water Loss Identifi-cation at User Level by Using Smart Metering Systems[2, 6, 17]
+[70]0.26Development of an IoT System for the Generation of a Database of Residential Water End-Use Consumption Time Series[4, 10, 17, 20]
+[5]0.26Monitoring domestic water consumption: a comparative study of mod-el-based and data-driven end-use disaggregation methods[12, 30]
+[9]0.25Enhancing Residential Water End Use Pattern Recognition Accuracy Using Self-Organizing Maps and K-Means Clustering Techniques: Aut-oflow v3.1[6, 8, 13, 25, 26]
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 11/29[21]0.24Water End Use Disaggregation Based on Soft Computing Techniques [1, 9, 12, 16, 24]
+[117]0.20End use water consumption in households: impact of socio-demograph-ic factors and efficient devices[2, 9, 10]
+[10]0.19Emerging investigator series: disaggregating residential sector high-resolution smart water meter data into appliance end-uses with unsupervised machine learning[4, 17, 30]
+[109]0.18Simulating Nonresidential Water Demand with a Stochastic End-Use Model[2, 6, 17]
+[3]0.17A novel mixed method smart metering approach to reconciling differ-ences between perceived and actual residential end use water con-sumption[1, 9]
+[29]0.17Smart Meter Analytics to Pinpoint Opportunities for Reducing House-hold Water Use[2, 10, 24]
+[41]0.15A non-intrusive approach for classifying residential water events using coincident electricity data[2, 17, 24]
+[22]0.15Water use signature patterns for analyzing household consumption using medium resolution meter data[2, 12]
+[108]0.14Large Landscape Urban Irrigation: A DataDriven Approach to Evaluate Conservation Behavior[2]
+[124]0.14Modeling the behavior of water reservoir operators via eigenbehavior analysis[2]
+[7]0.14An enhanced method for automated end-use classification of household water data[12, 52]
+Adjacent Work
+Which papers cite the same foundational papers as relevant papers?
+Use this table to discover related papers on adjacent topics, to gain a broader understanding of the field and help generate ideas 
+for useful new research directions.
+Ref.Adjacency scoreTitle References These Foundational Papers
+[17]0.27Is smart water meter temporal resolution a limiting factor to residential water end-use classification? A quantitative experimental analysis[10, 41, 45, 48, 70, 77, 85, 102]
+[111]0.20A systematic review of municipal smart water for climate adaptation and mitigation[2, 10, 33, 45, 48, 56]
+[81]0.18Investigating the characteristics of residential end uses of water: A worldwide review.[2, 10, 45, 48, 70]
+[103]0.15Exploring the impacts of tourism and weather on water consumption at different spatiotemporal scales: evidence from a coastal area on the Adriatic Sea (northern Italy)[2, 10, 27, 32, 33, 48]
+[143]0.15Exploiting high-resolution data to investigate the characteristics of water consumption at the end-use level: A Dutch case study[2, 9, 10, 45, 48]
+[57]0.13Dynamic Time Warping Clustering to Discover Socio-Economic Char-acteristics in Smart Water Meter Data[2, 9, 22, 29, 32, 45, 87]
+[24]0.12Non-intrusive Water Usage Classification Considering Limited Training Data[21, 29, 33, 38, 41, 45, 87]
+[144]0.10An empirical water consumer segmentation and the characterisation of consumption patterns underpinning demand peaks[2, 45, 48]
+[145]0.10Ten questions concerning water quality in building hot water systems [2, 10, 17, 45]
+[74]0.09Urban Water Consumption at Multiple Spatial and Temporal Scales. A Review of Existing Datasets[2, 45, 70]
+[146]0.09A Machine Learning-based framework and open-source software for Non Intrusive Water Monitoring[10, 17, 45]
+[147]0.09A hybrid model of machine learning for classifying household wa-ter-consumption behaviors[2, 5, 9, 17, 45]
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 12/29[148]0.09A Privacy-Preserving Framework Using Homomorphic Encryption for Smart Metering Systems[45, 48]
+[149]0.09Smart Water Meters Can Save Lives during the COVID-19 Pandemic [45, 48]
+[150]0.09Towards a smart water city: A comprehensive review of applications, data requirements, and communication technologies for integrated management[45, 48]
+[151]0.09Smart meters data for modeling and forecasting water demand at the user-level[45, 48]
+[152]0.09Understanding water consumption in a semi-permanent residential context through university student housing showers[17, 45, 70]
+[6]0.08Automated Household Water End-Use Disaggregation through Rule-Based Methodology[33, 45, 48, 77]
+[52]0.08From Pressure to Water Consumption: Exploiting High-Resolution Pressure Data to Investigate the End Uses of Water[7, 10, 17, 19, 38, 80, 87, 119, 121]
+[10]0.08Emerging investigator series: disaggregating residential sector high-resolution smart water meter data into appliance end-uses with unsupervised machine learning[2, 29, 32, 38, 70, 87, 102, 117]
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 13/29Chat History
+Conversation from 15/11/2025
+Integration of household survey data with flow-logger measurements for residential water 
+use profiling
+Combining water usage behavior surveys and household information (e.g., Number of Kitchen Utility Taps, Wash Dishes by Hand, Have Dishwasher, Have Washing Machine, Does Anyone Own a Car, Water Garden, Use Pressure Washer, Number of People, Home Type ..) with flow logger data for profiling residential water consumption.
+Below is a concise, implementationoriented blueprint for combining household wateruse behavior surveys and household 
+metadata with flowlogger data to profile residential consumption. I anchor key choices in the supplied literature and clearly 
+separate what is evidenced vs proposed.
+Executive summary
+•What is published: Only a few studies explicitly fuse surveys with metered enduse data for reconciliation or improved 
+segregation [1,3]. Most recent works disaggregate meter data without surveys, then do behavior segmentation from the 
+disaggregated streams [2], or advance meteronly methods at high (d5 s) and medium (1min) resolution [6,7,9,10,12]. 
+Opensource and deploymentoriented pipelines exist but do not operationalize survey variables in the model itself [5,8,15].
+•What we propose: Treat survey/household variables as soft priors, constraints, or covariates in eventlevel disaggregation, 
+customer segmentation, and leak/anomaly detection. Evaluate valueadd by ablation against meteronly baselines.
+What the literature supports (and gaps)
+•Survey–meter integration exists but is rare:
+•Reconciling perceived vs actual enduses with mixed methods [3].
+•Using surveys alongside flow loggers to improve segregation [1].
+•Segmentation from consumption alone:
+•Eigenbehavior clustering after disaggregation to reveal routinedriven household clusters (shower, clotheswasher, 
+irrigationdominant) using 5 s data [2].
+•Mediumresolution practicality:
+•Interpretable, rulebased and literatureparameterized 1min disaggregation with promising accuracy across two 
+countries [6,7]; unsupervised/domainknowledge 1min pipelines work well for short/steady uses but struggle with 
+multicycle appliances [12].
+•Tooling/computation:
+•Comparative supervised benchmarks [4,13], model vs learningbased and edge deployment [5], and opensource 
+semisupervised tools [8,15].
+•Gap to fill: Methodical, quantitative integration of survey variables into the modeling pipeline (priors/covariates/constraints) 
+and evaluation of leak/anomaly detection at the household level [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], with [15] noting 
+“anomalies” without metrics.
+Survey and household variables ’ model roles
+Treat the listed items as probabilistic priors, constraints, or features. Examples:
+•Ownership/availability (Have Dishwasher, Have Washing Machine, Number of Kitchen Taps, Home Type)
+•Priors: Nonzero eventrate priors only if owned; narrower prior ranges for flow/duration consistent with fixture ratings.
+•Constraints: Disallow dishwasher/washingmachine labels if ownership is “No.”
+•Behavioral practices (Wash Dishes by Hand, Water Garden, Use Pressure Washer)
+•Priors: Higher expected rate or cadence for corresponding enduses; irrigation weekly cadence prior if “Water Garden 
+= Yes.”
+•Occupancy (Number of People)
+•Scaling: Eventrate priors scale with occupants; diurnal likelihoods broaden as occupancy increases; nightline 
+baselines increase with occupants for leak models.
+•Lifestyle proxies (Own a Car)
+•Covariates: Optional proxy for outdoor water uses (car washing/pressure washer). Use as weak prior with strong 
+regularization to avoid bias.
+•Building context (Home Type: singlefamily vs multifamily)
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 14/29•Model choice/constraints: Multifamily adds shared/recirculation confounders; favor probabilistic superposition models 
+(FHMM) and topology rules (e.g., exclude commonarea times/flows).
+Pipeline blueprint
+1.Data preparation and event detection
+•Flowlogger preprocessing: despike, drift correction, and segmentation into events with minimumduration/volume rules 
+consistent with the meter resolution.
+•Event features: duration, mean/peak flow, rampup/rampdown, intermittency metrics, cyclicity (for washers/dishwashers), 
+withinevent variance; timeofday and dayofweek.
+•Rationale: These are the core features across rulebased and ML disaggregation at high and 1min resolutions [6,7,9,10,12].
+1.Map survey variables to priors and constraints
+•Enduse presence: If “Have Dishwasher = No,” prior event rate ’ near zero for dishwasher class; if “Wash Dishes by Hand = 
+Yes,” raise faucetlike event priors in relevant time windows.
+•Expected flow/duration: Use literaturederived ranges for fixtures [6,7,12]; surveyreported “Number of Kitchen Taps” 
+broadens faucet flow priors.
+•Cadence priors: “Water Garden = Yes” ’ weekly earlymorning cadence prior for irrigation; “Use Pressure Washer = Yes” ’ 
+highflow, infrequent, weekendweighted prior.
+•Occupancy scaling: Event count priors  occupants; shower/toilet daily counts scale, aiding shortevent disambiguation at 
+coarser sampling.
+1.Model alternatives for disaggregation
+•Interpretable rulebased core with surveyaware thresholds
+•Start with 1mincapable rule sets [6,7]: flow/duration windows, cyclic signatures; inject surveybased threshold shifts 
+and ownership constraints.
+•Benefit: High interpretability and portability to utility contexts lacking submeter labels [6,7,12].
+•Probabilistic sequence models (HMM/FHMM)
+•States = enduses; emissions = event features; transition priors informed by survey (e.g., washer cycle structure only 
+if owned). Fit via EM/variational methods with soft survey priors.
+•Benefit: Handles superposition and uncertainty; aligns with highresolution pipelines [9,10] but can be adapted to 1min.
+•Semisupervised clustering with constraints
+•Unsupervised pregrouping (e.g., SOM/Kmeans as in Autoflow) augmented with cannotlink/mustlink constraints from 
+survey ownership and practice variables [9].
+•Benefit: Reduces label ambiguity when ground truth is sparse; consistent with [9,10,12].
+•Supervised classifiers as components
+•Use RF/XGBoost/NN blocks on event features; include survey features as inputs. Expect RF/NN to be more robust 
+under class imbalance than SVM/LogReg [4]; XGBoost offers accuracy–compute balance and explainability [13].
+1.Household/usage segmentation
+•Derive segments from disaggregated enduses using eigenbehavior/timeuse motifs [2] and optionally include survey 
+covariates for coclustering.
+•Tie segments to model parameters (mixtureofexperts): e.g., “irrigationdominant” segment gets different priors than 
+“showerdominant” [2].
+1.Leak/anomaly detection integrated with surveys
+•Nightline baselines conditioned on occupancy and home type (multifamily lower tolerance for recirculation confounds).
+•Persistence/changepoint logic: threshold exceedance duration tuned by occupancy (e.g., fewer occupants ’ lower tolerance 
+for persistent low flow).
+•Note: The supplied corpus does not report quantitative leak detection performance; implement and benchmark explicitly 
+in your study [15].
+1.Multifamily adaptations
+•Meter topology metadata: mark commonarea meters, recirculation pumps; set exclusion windows; apply stronger persis-
+tence penalties to avoid misclassifying long showers as leaks.
+•Prefer FHMM/constraintaware rules; evaluate transferability since most evidence is singlefamily [2,5,6,7,9,10,11,12,13,15].
+Evaluation plan
+•Baselines: Meteronly versions of each model (no surveys) vs surveyaugmented variants.
+•Metrics:
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 15/29•Disaggregation: perclass precision/recall/F1, volumeweighted error, confusion analysis (especially faucet–toilet, 
+faucet–shower) [common practice in 6,7,9,10,12].
+•Segmentation: cluster stability, external validity vs surveyreported practices [2].
+•Leak/anomaly: timetodetect, falsealarm rate, missed detection rate; stratify by leak type and magnitude (not reported 
+in the provided papers—add this to your study).
+•Robustness: Crossclimate or crossregion transfer (if available), single vs multifamily splits; sensitivity to survey misreport-
+ing (simulate noise on survey variables).
+•Ablations: Remove individual survey variables (e.g., ownership vs frequency vs occupancy) to quantify marginal value.
+Data management and bias control
+•Temporal alignment: Ensure survey time frame matches meter observation window; decay weights for stale surveys [3].
+•Soft constraints: Treat surveys as priors, not hard truth, to hedge recall/social desirability bias [3]; let the posterior adjust 
+based on the meter evidence.
+•Privacy and deployment: Edge inference of eventlevel models is feasible with modest accuracy and privacy gains [5]; 
+opensource pipelines can accelerate iteration [8,15].
+Practical next steps
+•Start with a 1min interpretable pipeline augmented by surveydriven ownership and cadence priors [6,7,12]; validate on 
+households with any available submetered labels or expertaudited event logs.
+•Layer a probabilistic FHMM with survey priors for units with high superposition (multifamily) and for appliances with cyclic 
+signatures (washers/dishwashers) [9,10].
+•Run eigenbehavior clustering on disaggregated streams to form segments and check their alignment with surveyreported 
+practices (e.g., “washes dishes by hand”) [2].
+•Design and report a leak benchmark within your data—this is missing in the cited corpus—using surveyconditioned 
+baselines and standardized metrics.
+Citations to the provided set
+•Survey–meter integration and reconciliation: [1,3]
+•Behaviorbased segmentation from disaggregated streams: [2]
+•Mediumresolution, interpretable disaggregation and transferability: [6,7,12]
+•Highresolution and hybrid/unsupervised pipelines: [9,10]
+•Comparative ML and explainability/compute tradeoffs: [4,13]
+•Edge deployment and model vs learningbased comparison: [5]
+•Opensource tooling (semisupervised; pipelines): [8,15]
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 16/29References
+[1] Combining Surveys and Flow Logger Data to Improve the Accuracy of End-Use Segregation of Residential Water Consumption:
+Memon and Savi. Unknown journal, 2018. 1 citations.
+92% Topic Match
+No summary or abstract available
+[2] Data Mining to Uncover Heterogeneous Water Use Behaviors From Smart Meter Data
+A. Cominola, ..., and A. Castelletti . Water Resources Research , 2019. 61 citations.
+81% Topic Match
+Demonstrates a data-driven method to extract end-use routines and segment households from high-resolution smart meter data.Applies Autoflow disaggregation on 5s household meters (n=327, Australia), then uses eigenbehavior analysis to cluster consumers by temporal end-use patterns.Relevant: uses survey/fixture inventory only as contextual background (not integrated); single-climate (Australia) single-family–focused dataset, evaluates clusters (shower, clothes wash, irrigation) but does not compare multifamily settings, cross-climate generalizability, leak/anomaly detection, or interpretability/performance vs. alternative models.
+[3] A novel mixed method smart metering approach to reconciling differences between perceived and actual residential end use water consumption
+C. Beal, ..., and Kelly S. Fielding . Journal of Cleaner Production , 2013. 220 citations.
+70% Topic Match
+No summary or abstract available
+[4] Comparative Analysis of Supervised Classification Algorithms for Residential Water End Uses
+Z. Heydari and A. Stillwell . Water Resources Research , 2024. 5 citations.
+60% Topic Match
+Demonstrates a supervised classification comparison for residential water end-use labeling.Trains and evaluates RF, SVM, logistic regression, and neural network models on measured and CTGANgenerated synthetic labeled event data, using gridsearched hyperparameters.Lacks mention of integrating household Water Consumption Behavior Survey data, single vs multifamily or multiclimate generalizability, leak/anomaly detection, interpretability analysis beyond runtime, and practical deployment constraints.
+[5] Monitoring domestic water consumption: a comparative study of model-based and data-driven end-use disaggregation methods
+Pavlos Pavlou, ..., and Marios M. Polycarpou . Journal of Hydroinformatics , 2024. 7 citations.
+57% Topic Match
+Demonstrates a comparison of model-based and data-driven end-use disaggregation methods for single-household mains flow.Compares a dynamic-time-warping/statistical-bounds model-based (event-driven) method vs a time-series classification learning-based method, reporting similar F1 (~71%) and on-edge LB deployment (72%).Relevance notes: uses single-household flow-sensor data (no mention of survey/behavioral data), evaluates event-level classification performance and edge practicality, but does not address multifamily settings, cross-climate generalizability, segmentation, or leak/anomaly detection.
+[6] Automated Household Water End-Use Disaggregation through Rule-Based Methodology
+Filippo Mazzoni, ..., and Z. Kapelan . Journal of Water Resources Planning and Management , 2021. 14 citations.
+56% Topic Match
+Demonstrates a rule-based automated method for household end-use disaggregation.Implements threshold/duration/shape rules on 1-minute inlet smartmeter data and validates against intrusive submetering in four Bologna households (2 months).Relevant: uses survey-like absent (no behavior survey integration), single-climate/small sample, single-family-like homes, reports event-level validation vs ground truth but limited generalizability and no segmentation or leak/anomaly detection comparison.
+[7] An enhanced method for automated end-use classification of household water data
+Filippo Mazzoni, ..., and M. Franchini . Journal of Hydroinformatics , 2024. 5 citations.
+56% Topic Match
+Proposes an automated end-use disaggregation/classification method for 1-minute household water data.Compares detected event features to literature-derived typical feature ranges (no household-specific parameters); tested on 14 homes in Italy and the Netherlands, reporting >90% accuracy and NRMS <0.06.Relevant? Uses survey data? No — relies on literature priors (not household behavior surveys); evaluates single-family-like households across two climates/countries but limited sample (14 homes), little on segmentation, leak/anomaly detection, generalizability beyond tested contexts, or interpretability trade-offs.
+[8] An Open-Source, Semisupervised Water End-Use Disaggregation and Classification Tool
+Nour A. Attallah, ..., and Camilo J. Bastidas Pacheco . Journal of Water Resources Planning and Management , 2023. 9 citations.
+52% Topic Match
+No summary or abstract available
+[9] Enhancing Residential Water End Use Pattern Recognition Accuracy Using Self-Organizing Maps and K-Means Clustering Techniques: Autoflow v3.1
+Ao Yang, ..., and K. Nguyen . Water, 2018. 24 citations.
+39% Topic Match
+Demonstrates improved residential end-use disaggregation accuracy using SOM + K-means pre-grouping.Applies self-organizing maps and K-means to pre-cluster >100,000 events (252 Australian homes), then feeds clusters to existing ANN/HMM pattern recognizers, raising accuracy to ~86–94%.Validation uses medium-resolution household event labels from single-country (Australia) dataset; paper does not mention use of behavior survey data, multifamily settings, cross-climate tests, leak/anomaly detection, or interpretability/generalizability analyses.
+[10] Emerging investigator series: disaggregating residential sector high-resolution smart water meter data into appliance end-uses with unsuper-vised machine learning
+Gabrielle M. Bethke, ..., and A. Stillwell . Environmental Science: Water Research & Technology , 2021. 23 citations.
+35% Topic Match
+Demonstrates unsupervised ML disaggregation of high-resolution residential smart-meter data.Uses unsupervised clustering/pattern mining on high-frequency smart water meter traces to identify appliance end-use signatures without labeled submeter ground truth.Relevant: focuses single-family smart-meter data at high temporal resolution; likely evaluates event-level end-use identification accuracy, generalizability and interpretability versus supervised approaches—but does not mention integration of behavior survey data or multifamily/climate comparisons.
+[11] Next Generation Machine Learning for Urban Water Management
+K. Nguyen, ..., and Shamsur Rahim . Water e-Journal, 2020. 5 citations.
+29% Topic Match
+Proposes a machine-learning system (Autoflow) for household-scale water end-use disaggregation and demand management.Describes combining advanced digital metering with ML to enable autonomous end-use disaggregation, demand forecasting, and efficiency recommendations.
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 17/29Unclear if it uses residential Water Consumption Behavior Survey Data, provides event-level validation, distinguishes single- vs multifamily, or evaluates general-izability, interpretability, climates, or leak/anomaly detection—paper appears conceptual/engineering-focused with limited methodological/evaluation detail.
+[12] Disaggregating major water end-uses with minimal data: a machine learning and domain knowledge approach
+N. Pelekanos, ..., and C. Makropoulos . Urban Water Journal, 2025. 0 citations.
+25% Topic Match
+Proposes a zero-additional-data ML + domain-knowledge method for end-use disaggregation.Uses 1minute smartmeter data with KMeans clustering and probabilistic assignment to label events into devices.No survey/behavioral priors or household segmentation used; performs well for faucets/toilets/showers but poorly for washers/dishwashers; single-resolution (1min) study, no multifamily vs singlefamily or crossclimate evaluation.
+[13] Disaggregating Household Water End-Uses: A Comparative Study Between XGBoost and TabNet
+Prathik Pradeep, ..., and Claudia Bakeev . 2024 6th International Conference on Data-driven Optimization of Complex Systems (DOCS) , 2024. 1 citations.
+24% Topic Match
+Demonstrates a supervised end-use disaggregation comparison (XGBoost vs TabNet).Trains and tests both classifiers on UK household meter data (real homes), evaluates accuracy and explainability, and adds Gaussian noise for robustness testing.Does not mention use of Water Consumption Behavior Survey Data, segmentation, leak/anomaly detection, cross-climate or single vs multifamily comparisons; focuses on model performance, compute tradeoffs, and interpretability in a single UK dataset.
+[14] An intelligent pattern recognition model to automate the categorisation of residential water end-use events
+K. Nguyen, ..., and Hong Zhang . Environ. Model. Softw., 2013. 84 citations.
+23% Topic Match
+No summary or abstract available
+[15] Advancing the cyberinfrastructure for smart water metering: A new open source water end use disaggregation algorithm
+Nour A. Attallah, ..., and Camilo J. Bastidas Pacheco . Unknown journal, 2021. 0 citations.
+20% Topic Match
+Demonstrates an open-source water end-use disaggregation tool.Implements a Python algorithm tested on 1month, high-resolution meter data from 31 Utah residences to classify appliance/fixture events.Reproducible code and anonymized data tested; limited scope—single US climate (Utah), small sample, unclear survey integration, single- vs multifamily and leak-detection/generalizability comparisons not addressed.
+[16] Impact of Data Temporal Resolution on Quantifying Residential End Uses of Water
+Camilo J. Bastidas Pacheco, ..., and Arle S. Beckwith . Water, 2022. 4 citations.
+19% Topic Match
+Abstract: Residential water end-use events (e.g., showers, toilets, faucets, etc.) can be derived from high temporal resolution (<1 min) water metering data. Past studies have collected data at different temporal resolutions (e.g., 4 s, 5 s, or 10 s) without assessing the impact of the temporal aggregation interval on end-use event features (e.g., volume, flowrate, duration) due to the unavailability of data at a sufficient temporal resolution to enable such analyses. We recorded the time between every magnetic pulse generated by a magnetically driven residential water meter’s measurement element (full pulse resolution) using a new, open-source datalogging device and collected data...
+[17] Is smart water meter temporal resolution a limiting factor to residential water end-use classification? A quantitative experimental analysis
+Z. Heydari, ..., and A. Stillwell . Environmental Research: Infrastructure and Sustainability , 2022. 17 citations.
+18% Topic Match
+Abstract: Water monitoring in households provides occupants and utilities with key information to support water conservation and efficiency in the residential sector. High costs, intrusiveness, and practical complexity limit appliance-level monitoring via sub-meters on every water-consuming end use in households. Non-intrusive machine learning methods have emerged as promising techniques to analyze observed data collected by a single meter at the inlet of the house and estimate the disaggregated contribution of each water end use. While fine temporal resolution data allow for more accurate end-use disaggregation, there is an inevitable increase in the amount of data that needs to be stored and...
+[18] International Conference on Hydroinformatics 8-1-2014 Development Of An Autonomous And Intelligent System For Residential Water End Use Classification
+K. Nguyen, ..., and Hong Zhang . Journal Not Provided, 2017. 4 citations.
+18% Topic Match
+No summary or abstract available
+[19] An Approach to Disaggregating Total Household Water Consumption into Major End-Uses
+Sara Fontdecaba, ..., and Jordi Zubelzu . Water Resources Management , 2013. 18 citations.
+15% Topic Match
+No summary or abstract available
+[20] Efficient Deep Learning Techniques for Water Disaggregation
+Nikolaos Virtsionis Gkalinikis and D. Vrakas . 2022 2nd International Conference on Energy Transition in the Mediterranean Area (SyNERGY MED), 2022. 5 citations.
+14% Topic Match
+Abstract: The goal of water disaggregation is to specify the consumption of the individual water fixtures using only the aggregate consumption measurements of a single house meter. This task belongs to the family of blind source separation methods, where neural networks are proven to excel. Despite that recent breakthroughs in Internet of Things led to the development of meters able to measure consumption in frequency higher than 1 point per month or day, the use of deep learning in this domain is infeasible due to the lack of publicly available data sets. To overcome these challenges a set of deep learning...
+[21] Water End Use Disaggregation Based on Soft Computing Techniques
+L. Pastor-Jabaloyes, ..., and R. Cobacho . Water, 2018. 39 citations.
+13% Topic Match
+Abstract: Disaggregating residential water end use events through the available commercial tools needs a great investment in time to manually process smart metering data. Therefore, it is extremely difficult to achieve a homogenous and sufficiently large corpus of classified single-use events capable of accurately describe residential water consumption. The main goal of the present paper is to develop an automatic tool that facilitates the disaggregation of the individual water consumptions events from the raw flow trace. The proposed disaggregation methodology is conducted through two actions that are iteratively performed: first, the use of an advanced two-step filter, whose calibration is automatically...
+[22] Water use signature patterns for analyzing household consumption using medium resolution meter data
+R. Cardell-Oliver. Water Resources Research , 2013. 49 citations.
+12% Topic Match
+No summary or abstract available
+[23] Segmentation analysis of residential water-electricity demand for customized demand-side management programs
+A. Cominola, ..., and F. Loge . Journal of Cleaner Production , 2018. 61 citations.
+11% Topic Match
+No summary or abstract available
+[24] Non-intrusive Water Usage Classification Considering Limited Training Data
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 18/29P. Pavlou, ..., and M. Polycarpou . ArXiv, 2022. 0 citations.
+10% Topic Match
+Abstract: Smart metering of domestic water consumption to continuously monitor the usage of different appliances has been shown to have an impact on people’s behavior towards water conservation. However, the installation of multiple sensors to monitor each appliance currently has a high initial cost and as a result, monitoring consumption from different appliances using sensors is not cost-effective. To address this challenge, studies have focused on analyzing measurements of the total domestic consumption using Machine Learning (ML) methods, to disaggregate water usage into each appliance. Identifying which appliances are in use through ML is challenging since their operation may be overlapping,...
+[25] An adaptive model for the autonomous monitoring and management of water end use
+K. Nguyen, ..., and O. Sahin . Smart Water, 2018. 14 citations.
+10% Topic Match
+Abstract: Most pattern classification systems are usually developed based on the training of historical data, and as a result, the performance of these models relies heavily on the amount of collected information. However, in many cases, such data collection process is relatively costly, which eventually limits the efficiency as well as the widespread implementation of the final developed model. In this context, the paper focuses on presenting an advanced universal water management system, which could interface with both water consumers and utilities via smart phone and web application. Originally, Autoflow© , a prototype tool that is used to disaggregate total water consumption...
+[26] Exploring the Effectiveness of Clustering Algorithms for Capturing Water Consumption Behavior at Household Level
+A. Ioannou, ..., and C. Laspidou . Sustainability, 2021. 10 citations.
+10% Topic Match
+Abstract: As water scarcity becomes more prevalent, the analysis of urban water consumption patterns at the consumer level and the estimation of the corresponding water demand for water utility are expected to be among the top priorities of water companies in the near future. This study proposes a comprehensive methodology for water managers to achieve an efficient operation of urban water networks, by successfully detecting residential water consumption patterns corresponding to different household needs and behaviors. The methodology uses Self Organizing Maps as the main clustering algorithm in combination with K-means and Hierarchical Agglomerative Clustering. The objective is to create clusters...
+[27] Smart meter enabled disaggregation of urban peak water demand: precursor to effective urban water planning
+G. Cole and R. Stewart. Urban Water Journal, 2013. 92 citations.
+9% Topic Match
+No summary or abstract available
+[28] An autonomous and intelligent expert system for residential water end-use classification
+K. Nguyen, ..., and Hong Zhang . Expert Syst. Appl., 2014. 59 citations.
+9% Topic Match
+No summary or abstract available
+[29] Smart Meter Analytics to Pinpoint Opportunities for Reducing Household Water Use
+R. Cardell-Oliver, ..., and H. Gigney . Journal of Water Resources Planning and Management , 2016. 48 citations.
+9% Topic Match
+No summary or abstract available
+[30] UNet-WD: Deep Learning for Multi-Appliance Water Disaggregation
+Redemptor Jr Laceda Taloma, ..., and Francesca Cuomo . 2024 IFIP Networking Conference (IFIP Networking) , 2024. 0 citations.
+8% Topic Match
+Abstract: Water usage in residential buildings highly impacts the overall urban demand. Following the release of the first public high-resolution smart meter data at the fixture level, we envision that extending non-intrusive load monitoring to water disaggregation will avoid installing one smart meter per appliance while still providing users with insights into their consumption habits, which eventually promote water savings. The interest in deep learning in the energy sector has increased over the years, motivated by superior accuracy in real-world settings with many appliances. In light of this, the work aims to explore the effectiveness of deep neural networks in disaggregating...
+[31] Clustering Consumption Activities in a Water Monitoring System
+Diana-Andreea Arsene, ..., and Costin-Gabriel Chiru . 2022 IEEE International Conference on Automation, Quality and Testing, Robotics (AQTR) , 2022. 3 citations.
+7% Topic Match
+Abstract: Monitoring water consumption in a household is essential to understanding where and how much is consumed. To improve the management of water resources, the consumer demand must be observed, the inadequate consumption must be limited, and the leaks must be reduced. This study compares the most common water consuming activities using the data collected from various households. Consumption events were extracted for clustering consumption activities using the K-Means algorithm. The results show that the toilet accounts for the highest water consumption, while having a lower variability in terms of duration and volume when compared to the sink where the most...
+[32] Discovering water use activities for smart metering
+R. Cardell-Oliver. 2013 IEEE Eighth International Conference on Intelligent Sensors, Sensor Networks and Information Processing , 2013. 22 citations.
+7% Topic Match
+No summary or abstract available
+[33] Intelligent autonomous system for residential water end use classification: Autoflow
+K. Nguyen, ..., and Christopher Jones . Appl. Soft Comput., 2015. 85 citations.
+7% Topic Match
+No summary or abstract available
+[34] Impact of COVID-19 emergency on residential water end-use consumption measured with a high-resolution IoT system
+A. Di Mauro, ..., and A. Di Nardo . Journal of Water Supply: Research and Technology-Aqua , 2021. 5 citations.
+7% Topic Match
+Abstract:  In the era of Smart Cities, in which the paradigms of smart water and smart grid are keywords of technological progress, advancements in metering systems allow for water consumption data collection at the end-use level, which is necessary to profile users' behaviors and to promote sustainable use of water resources. In this paper, a real case study of residential water end-use consumption monitoring shows how data collected at a high-resolution rate allow for the evaluation of consumption profiles. The analysis was carried out by calculating consumption statistics, hourly consumption patterns, daily use frequency, and weekly use frequency. Then, the...
+[35] Combined Methods for Quantifying End-Uses of Residential Indoor Water Consumption
+Y. Otaki, ..., and T. Aramaki . Environmental Processes , 2017. 15 citations.
+6% Topic Match
+No summary or abstract available
+[36] Training with synthesised data for disaggregated event classification at the water meter
+M. Wonders, ..., and M. A. Hossain . Expert Syst. Appl., 2016. 11 citations.
+6% Topic Match
+No summary or abstract available
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 19/29[37] Benchmarking machine learning algorithms for Non-Intrusive Water Monitoring
+A. Cominola, ..., and Riccardo Taormina . Unknown journal, 2020. 1 citations.
+5% Topic Match
+Abstract:  <p>As several cities all over the world face the exacerbating challenges posed by climate change, population growth, and urbanization, it becomes clear how increased water security and more resilient urban water systems can be achieved by optimizing the use of water resources and minimize losses and inefficient usage. In the literature, there is growing evidence about the potential of demand management programs to complement supply-side interventions and foster more efficient water use behaviors. A new boost to demand management is offered by the ongoing digitalization of the water utility sector, which facilitates accurate measuring and estimation of urban water...
+[38] A Longitudinal Study of Pressure Sensing to Infer Real-World Water Usage Events in the Home
+Jon E. Froehlich, ..., and Shwetak N. Patel . Unknown journal, 2011. 71 citations.
+5% Topic Match
+No summary or abstract available
+[39] Reducing the Intrusiveness of Energy and Water End-Use Disaggregation via Social Media and Users Interactions
+M. Giuliani and Jacopo Mossina . Proceedings of the International AAAI Conference on Web and Social Media , 2021. 0 citations.
+5% Topic Match
+Abstract:  Water end-use disaggregation from smart-metered water consumption data is key to design water demand management strategies. Yet, despite large investments for smart metering networks, few water utilities are actually exploiting the potential of end-use-based consumer profiling. This is mostly due to the intrusiveness of existing disaggregation algorithms, which require intensive and time consuming human interaction for extracting appliance-specific information and estimating the end-use patterns. We propose to explore the potential for social media in facilitating the interactions between water utilities and water users in order to collect consumption diaries. The evaluation of the value of this user-generated information is...
+[40] Intelligent model to categorise mechanised water end uses
+K. Nguyen and Hong Zhang . Unknown journal, 2015. 0 citations.
+5% Topic Match
+No summary or abstract available
+[41] A non-intrusive approach for classifying residential water events using coincident electricity data
+J. Vitter and M. Webber. Environ. Model. Softw., 2018. 25 citations.
+4% Topic Match
+No summary or abstract available
+[42] Analysis on Statistical Characteristics of Household Water End-uses
+H. Kim, ..., and K. Jung. Unknown journal, 2008. 5 citations.
+4% Topic Match
+No summary or abstract available
+[43] Classifying Household Water Use Events into Indoor and Outdoor Use: Improving the Benefits of Basic Smart Meter Data Sets
+Bettina E. Meyer, ..., and S. Buchberger . Journal of Water Resources Planning and Management , 2021. 5 citations.
+4% Topic Match
+Abstract: AbstractThis research investigated relationships between the most notable characteristics of end-use events, namely, event duration, volume, and intensity, in order to categorize water use as being...
+[44] Analysis of simultaneous water end use events using a hybrid combination of filtering and pattern recognition techniques
+K. Nguyen, ..., and R. Stewart . Unknown journal, 2012. 2 citations.
+4% Topic Match
+No summary or abstract available
+[45] Implications of data sampling resolution on water use simulation, end-use disaggregation, and demand management
+Alessandro Cominola, ..., and A. Abdallah . Environ. Model. Softw., 2018. 74 citations.
+4% Topic Match
+No summary or abstract available
+[46] A clustering solution for analyzing residential water consumption patterns
+Md Shamsur Rahim, ..., and M. Blumenstein . Knowl. Based Syst., 2021. 18 citations.
+4% Topic Match
+No summary or abstract available
+[47] Non-intrusive disaggregation of water consumption data in a residential household
+I. Kozlovskiy, ..., and Mariya A. Sodenkamp . Unknown journal, 2016. 5 citations.
+3% Topic Match
+No summary or abstract available
+[48] Green Smart Technology for Water (GST4Water): Water Loss Identification at User Level by Using Smart Metering Systems
+C. Luciani, ..., and M. Franchini . Water, 2019. 43 citations.
+3% Topic Match
+Abstract: A real-time household water consumption monitoring and processing system aimed at leakage identification at user level is presented here. The system, developed within the GST4Water project, allows consumption data sent by a generic smart meter installed in a user’s house to be received and transferred to a cloud platform. Here, the consumption data are stored and processed through an empirical algorithm able to automatically identify leakage at the individual user level by looking for non-consumption in certain periods of the day. With reference to a real-life case study, the results obtained show that the algorithm enables leakages on users’ properties...
+[49] Classifying household water use into indoor and outdoor use from a rudimentary data set: a case study in Johannesburg, South Africa
+Bettina Meyer, ..., and A. Ilemobade . Journal of Water Sanitation and Hygiene for Development , 2021. 8 citations.
+3% Topic Match
+Abstract:  Distinguishing between indoor use and outdoor use is becoming increasingly important, especially in water-scarce regions, since outdoor use is typically targeted during water restrictions. Household water use is typically measured at a single water meter, and the resolution of the metered data is typically too coarse to employ on commercially available disaggregation software, such as flow trace analysis. This study is the first to classify end-use events from a rudimentary data set, into indoor use or outdoor use. This case study was conducted in Johannesburg, South Africa, and quantified the volume of water used indoors and outdoors at 63...
+[50] A Statistical Framework for Automatic Leakage Detection in Smart Water and Gas Grids
+Marco Fagiani, ..., and F. Piazza . Energies, 2016. 21 citations.
+3% Topic Match
+Abstract: In the last few years, due to the technological improvement of advanced metering infrastructures, water and natural gas grids can be regarded as smart-grids, similarly to power ones. However, considering the number of studies related to the application of computational intelligence to distribution grids, the gap between power grids and water/gas grids is notably wide. For this purpose, in this paper, a framework for leakage identification is presented. The framework is 
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 20/29composed of three sections aimed at the extraction and the selection of features and at the detection of leakages. A variation of the Sequential Feature Selection (SFS) algorithm is...
+[51] Análise de dados de telemedição de consumos domésticos para apoio na avaliação de perdas aparentes e reais em sistemas de distribuição de água
+M. Silva, ..., and Francisco J. Arregui . Unknown journal, 2021. 0 citations.
+3% Topic Match
+Abstract: The availability of instantaneous data on water consumption in water utilities of water distribution systems has been increasing due to the increase in the number of customers with smart meters. The analysis of these data allows to improve the billing systems and the customers’ management and to improve the water losses estimate in each water utility. Aiming to evaluate the apparent losses, through the analysis of the water consumption profiles, and real losses, through the study of the minimum night flow, 275 domestic customers of 10 water utilities were measured using a smart meter. The water consumption profiles useful for...
+[52] From Pressure to Water Consumption: Exploiting High-Resolution Pressure Data to Investigate the End Uses of Water
+V. Marsili, ..., and M. Franchini . Water Resources Management , 2024. 3 citations.
+3% Topic Match
+Abstract: A method to investigate water consumption based on pressure data is developed. The method exploits the headloss-flowrate equation to obtain water-consumption data. The method is validated on a real case study, resulting in an average error of 2.3%. Limitations affecting the installation of domestic flow meters are overcome. Insights into the features of individual water-consumption events are provided. In the era of digital transformation of water distribution networks, an increasingly important role is played by smart metering technologies, which allow detailed characterization of water consumption up to the end-use (i.e., domestic-fixture) level. To this end, smart flow meters make the...
+[53] Online Water Usage Monitoring under Anomalous Interference in Residential Households
+R. Chao, ..., and Kun-Ta Chuang . 2022 International Conference on Technologies and Applications of Artificial Intelligence (TAAI) , 2022. 0 citations.
+2% Topic Match
+Abstract: As the issue of water shortage is increasing nowadays due to climate change, water consumption monitoring has become more critical in home automation services in recent years. In order to lower water bills, residents need to adjust their water usage behaviors to reduce their water consumption, highlighting the importance of the water behavior disaggregation task. However, existing works may fail to precisely disaggregate behaviors when anomaly data exists in received water data since they usually assume it is a clean dataset. In order to deal with this issue, we propose a two-phase framework to online disaggregate water usage behaviors in...
+[54] Use of HighFrequency Data to Detect Household Leaks as Event Outliers
+John P. McCary and J. Heaney . Journal  American Water Works Association , 2018. 1 citations.
+2% Topic Match
+Abstract: This article presents the results of a prototype highfrequency water use evaluation using 1 min data collected for three singlefamily homes in Hillsborough County, Fla., over a period of one year. Automatic meter reading meter registers were used with shortrange wireless communication that allowed for ease of data collection by driving by and downloading the data from the meter registers. This analysis quantifies potential leaks by looking at outlier events in terms of intensity, duration, frequency, and volume. The homes have separate indoor and irrigation meters, which enables the analysis to compare outliers across indoor water use and irrigation separately....
+[55] Automatic Detection of Water Consumption Temporal Patterns in a Residential Area in Northen Italy
+Elena Cristiano, ..., and Francesco Viola . Water Resources Management , 2024. 4 citations.
+2% Topic Match
+Abstract: One of the main challenges for city development is to ensure a sustainable water resource management for the water supply system. A clear identification of the urban water consumption patterns supports policy and decision makers in managing the water resources, satisfying the total demand and, at the same time, reducing losses and identifying potential leakages or other issues in the distribution network. High resolution smart meters have widely shown to be an efficient tool to measure in-pipe water consumption. The collected data can be used to identify water demand patterns at different temporal and spatial scales, reaching the end-uses level....
+[56] ANN-based residential water end-use demand forecasting model
+C. Bennett, ..., and C. Beal . Expert Syst. Appl., 2013. 146 citations.
+2% Topic Match
+No summary or abstract available
+[57] Dynamic Time Warping Clustering to Discover Socio-Economic Characteristics in Smart Water Meter Data
+D. Steffelbauer, ..., and E. Abraham . ArXiv, 2021. 8 citations.
+2% Topic Match
+Abstract: AbstractSocioeconomic characteristics are influencing the temporal and spatial variability of water demand, which are the biggest source of uncertainties within water distribution system modeling. ...
+[58] A use case of anomaly detection for identifying unusual water consumption in Jordan
+Samer Nofal, ..., and Amani Abu Jabal . Water Supply, 2021. 10 citations.
+2% Topic Match
+Abstract:  We present a use case of anomaly detection for identifying the unusual water consumption of consumers. Unusual water consumption may be due to a faulty water meter, fraudulent tampering with a water meter, or a leak in the water pipes within the consumer's property. We apply several anomaly detection methods to a real dataset of 22,877 mechanical water meters located in Amman, the capital city of Jordan. The dataset is unlabeled such that no discrimination is given for any meter whether it records a normal water consumption or not. The objective of this study is to test the hypothesis...
+[59] A Hybrid Signature-based Iterative Disaggregation algorithm for Non-Intrusive Load Monitoring
+A. Cominola, ..., and A. Rizzoli . Applied Energy, 2017. 135 citations.
+2% Topic Match
+No summary or abstract available
+[60] Implications of Experiment Set-Ups for Residential Water End-Use Classification
+Nora Gourmelon, ..., and A. Maier . Water, 2020. 11 citations.
+2% Topic Match
+Abstract: With an increasing need for secured water supply, a better understanding of the water consumption behavior is beneficial. This can be achieved through end-use classification, i.e., identifying end-uses such as toilets, showers or dishwashers from water consumption data. Previously, both supervised and unsupervised machine learning (ML) techniques are employed, demonstrating accurate classification results on particular datasets. However, a comprehensive comparison of ML techniques on a common dataset is still missing. Hence, in this study, we are aiming at a quantitative evaluation of various ML techniques on a common dataset. For this purpose, a stochastic water consumption simulation tool with high...
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 21/29[61] Predicting consumption events in a water monitoring system
+Diana-Andreea Arsene, ..., and Costin-Gabriel Chiru . 2022 26th International Conference on System Theory, Control and Computing (ICSTCC) , 2022. 0 citations.
+1% Topic Match
+Abstract: Monitoring water consumption has multiple benefits nowadays. Big data collected from the sensors provide a consistent basis for the decision-making processes in terms of establishing the indices and criteria needed to optimize the water demand. In this study, the data provided by four distinct water consumption outlets (hot/cold water sink, toilet, and shower) from multiple households were analyzed. A clustering analysis revealed a visual overview of the consumption events from each outlet. Then, classification methods were used to predict the source of water consumption events using four algorithms based on machine learning and deep learning. The proposed methods and results...
+[62] Water Demand Pattern Classification from Smart Meter Data
+S. McKenna, ..., and Bradley Eck . Procedia Engineering, 2014. 42 citations.
+1% Topic Match
+No summary or abstract available
+[63] Leveraging submetered electricity loads to disaggregate household water-use
+Bradley Ellert. Unknown journal, 2015. 1 citations.
+1% Topic Match
+No summary or abstract available
+[64] Patterns tell human stories: towards connecting residential water use to occupant behavior in a permanent supportive housing context
+Hassaan Khan and A. Stillwell . Environmental Research: Infrastructure and Sustainability , 2025. 0 citations.
+1% Topic Match
+Abstract:  The quantification of residential water end uses is an important component of improving the sustainability of urban water infrastructure. Disaggregation and classification methods based on statistical learning are used in research and practice to extract meaningful insights from smart water meter data. These insights can also reflect individual behaviors within the built environment, enabling end-user activity detection from water consumption patterns. In this study, we present an initial framework for classifying residential water end uses and assisting with discerning between perceived typical and atypical water-use behavior in a permanent supportive housing context. Classification schemes, based on fine-resolution temporal flow...
+[65] A Non-Intrusive Water Consumption Monitoring System
+James Adrian B. Somontina and E. Q. B. Macabebe . 2020 IEEE Global Humanitarian Technology Conference (GHTC) , 2020. 1 citations.
+1% Topic Match
+Abstract: Water is an essential resource for humans as it is used in many activities for both leisure and hygiene. However, the technology available in monitoring water consumption is limited to the traditional flowmeter. Households and small buildings rely only on the end-of-month billing by the water distributor. This study presents a water monitoring system that uses a pressure sensor which is a non-intrusive method of determining water activity. Aside from calculating the volume of water consumed, the system implements fixture recognition using machine learning as its main feature. This provides more information to users allowing them to identify appliances or...
+[66] A Multi-label Time Series Classification Approach for Non-intrusive Water End-Use Monitoring
+Dimitris Papatheodoulou, ..., and T. Theocharides . ArXiv, 2022. 0 citations.
+1% Topic Match
+Abstract: . Numerous real-world problems from a diverse set of application areas exist that exhibit temporal dependencies. We focus on a specic type of time series classication which we refer to as aggregated time series classication. We consider an aggregated sequence of a multi-variate time series, and propose a methodology to make predictions based solely on the aggregated information. As a case study, we apply our methodology to the challenging problem of household water end-use dissagregation when using non-intrusive water monitoring. Our methodology does not require a-priori identication of events, and to our knowledge, it is considered for the rst time....
+[67] Extracting household water use event characteristics from rudimentary data
+Bettina Meyer, ..., and A. Ilemobade . Journal of Water Supply Research and Technology-aqua , 2020. 11 citations.
+1% Topic Match
+Abstract: Household water end-uses have been extracted from high-resolution smart water meter data in various earlier studies. However, research on end-use disaggregation from rudimentary data is limited. Rudimentary data is defined as data recorded in intervals longer than 1 min, or data recorded with resolutions larger than 0.1 L/pulse. Developing countries typically deal with rudimentary data, due to the high cost and high resource investment associated with high-resolution data. The aim of this study was to extract useful event characteristics from rudimentary data, without identifying the actual end-uses per se. A case study was conducted in the City of Johannesburg, South...
+[68] Artificial Intelligent Techniques in Residential Water End-use Studies for Optimized Urban Water Management
+Ao Yang. Unknown journal, 2018. 1 citations.
+1% Topic Match
+No summary or abstract available
+[69] Water demand pattern classification from smart meter data
+S. A. McKennaa, ..., and B. J. Ecka . Journal Not Provided, 2014. 0 citations.
+1% Topic Match
+No summary or abstract available
+[70] Development of an IoT System for the Generation of a Database of Residential Water End-Use Consumption Time Series
+A. D. Mauro, ..., and S. Venticinque . Environmental Sciences Proceedings , 2020. 10 citations.
+1% Topic Match
+Abstract: Disaggregation techniques are useful to separate data aggregated into single end-use categories, and they are becoming of great interest in the water sector due to the technological innovation in metering systems that has made water consumption data available. However, in order to apply disaggregation methods, high-resolution data at the end-use level are needed. To face this problem, the paper presents an Internet of Things water end-use monitoring system that is able to read real-time end-use consumption in a residential apartment equipped as a pilot site. Moreover, the paper describes preliminary consideration of the dataset and the potentiality of end-use consumption...
+[71] The influence of multifamily apartment building occupants on energy and water consumption – the preliminary results of monitoring and survey campaign
+Karol Bandurski, ..., and H. Koczyk . Unknown journal, 2017. 5 citations.
+1% Topic Match
+Abstract: Occupants’ attitudes and behavior have a significant influence on energy and water consumption in buildings. To provide more robust solutions, energy efficient applications should consider occupant-building interaction. However, there is a question to be answered: which aspects of lodging and occupant behavior cause the most substantial increase in consumption of these mediums. Thus, the aim of this study is to investigate the influence of household characteristics and occupants’ behavior on level and variability in utilities consumption. The study uses the results of a measuring campaign and the questionnaire. The measuring campaign was carried out to monitor the consumption of energy...
+[72] High-Resolution Tap-Based IoT System for Flow Data Collection and Water End-Use Analysis
+Man-Ho Luk, ..., and K. Lui . IEEE Internet of Things Journal , 2022. 4 citations.
+1% Topic Match
+Abstract: Knowledge on water-use patterns in residential settings can help policymakers formulate well-targeted water conservation measures and evaluate the efficacy of such measures. Prior studies have applied machine learning techniques to disaggregate household-level water consumption data, collected by smart 
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 22/29meters, into specific end-use categories, such as showering, basin use, kitchen use, and use by washing machine. However, the analysis of the effect of the sampling interval on the classification accuracy level remains an underinvestigated issue. This article seeks to fill this knowledge gap by identifying an optimal sampling interval that can achieve a high level of classification accuracy while overcoming constraints...
+[73] Exploring Patterns in Water Consumption by Clustering
+C. Laspidou, ..., and L. Tassiulas . Procedia Engineering, 2015. 42 citations.
+1% Topic Match
+No summary or abstract available
+[74] Urban Water Consumption at Multiple Spatial and Temporal Scales. A Review of Existing Datasets
+A. Di Mauro, ..., and A. Di Nardo . Water, 2020. 60 citations.
+1% Topic Match
+Abstract: Over the last three decades, the increasing development of smart water meter trials and the rise of demand management has fostered the collection of water demand data at increasingly higher spatial and temporal resolutions. Counting these new datasets and more traditional aggregate water demand data, the literature is rich with heterogeneous urban water demand datasets. They are characterized by heterogeneous spatial scales—from urban districts, to households or individual water fixtures—and temporal sampling frequencies—from seasonal/monthly up to sub-daily (minutes or seconds). Motivated by the need of tracking the existing datasets in this rapidly evolving field of investigation, this manuscript is the...
+[75] Modelling and Clustering Patterns from Smart Meter Data in Water Distribution Systems
+Mariaelena Berlotti, ..., and Roberto Gueli . Unknown journal, 2025. 0 citations.
+1% Topic Match
+Abstract: : In recent years, water utilities have increasingly required a deeper understanding of users’ water demand across their distribution networks to optimize resource management and meet customers' needs. With the adoption of smart metering solutions, it has become possible to investigate water usage at a finer resolution, enabling the collection of more detailed consumption data. In the present study, the authors present an innovative methodology for identifying water usage using data from smart meters. First, a Multiple Seasonal-Trend Decomposition algorithm is applied to extract seasonality from the raw time-series data. Next, the Bootstrap sampling technique is used to train an...
+[76] Analysis of Household Water Demand Patterns by Meters Recording
+Juhwan Kim, ..., and N. Jung . Unknown journal, 2008. 1 citations.
+1% Topic Match
+No summary or abstract available
+[77] Water management: Current and future challenges and research directions
+W. Cosgrove and D. Loucks . Water Resources Research , 2015. 895 citations.
+1% Topic Match
+No summary or abstract available
+[78] Water supply telemetry data processing in apartment buildings
+Elena Ignatova. BIO Web of Conferences, 2024. 1 citations.
+1% Topic Match
+Abstract: The digital transformation of construction and housing and utilities sector involves data-based management. The most accessible data is telemetry of electricity, gas, heat and water consumption. Despite the fact that not all apartment buildings are equipped with meters yet, it is necessary to think about methods for processing measurement data. Intelligent data processing methods are gaining wide popularity. The purpose of this study is the processing and analysis of water consumption telemetry data. The objective of the study is to determine the periods of nighttime water consumption using the clustering method. The data of apartment meters of hourly consumption of...
+[79] Water Use Behavior in Single-Family Homes: A Case Study in Texas
+P. Xue, ..., and B. Dong. Building Simulation Conference Proceedings , 2017. 1 citations.
+1% Topic Match
+Abstract: Residential water use has become a critical issue of the built environment due to drought and increasing water retail price in many regions around the world. However, there is limited research done to understand water use behavior in residential buildings. This paper presents data analytics and results from monitoring data of daily water use in 50 single-family homes in Texas, USA. Based on data analysis, residents’ regular water use patterns are investigated. The results help generate awareness of water use behavior and support further studies in clustering water use behavior patterns and developing water use models for simulation.
+[80] Water Event Categorization Using Sub-Metered Water and Coincident Electricity Data
+J. Vitter and M. Webber. Water, 2018. 15 citations.
+1% Topic Match
+Abstract: This study evaluated the potential for data from dedicated water sub-meters and circuit-level electricity gauges to support accurate water end-use disaggregation tools. A supervised learning algorithm was trained to categorize end-use events from an existing database consisting of features related to whole-home and hot water use. Additional features were defined based on dedicated irrigation metering and circuit-level electricity gauges on major water appliances. Support vector machine classifiers were trained and tested on portions of the database using multiple feature combinations, and then externally validated on water event data collected under dissimilar conditions from a demonstration house in Austin, Texas, USA....
+[81] Investigating the characteristics of residential end uses of water: A worldwide review.
+Filippo Mazzoni, ..., and M. Franchini . Water research, 2022. 60 citations.
+0% Topic Match
+No summary or abstract available
+[82] Smart-Meter Enabled Estimation and Prediction of Outdoor Residential Water Consumption
+V. Platsko. Unknown journal, 2018. 0 citations.
+0% Topic Match
+No summary or abstract available
+[83] Using smart meters data to model customer water consumption and evaluate customer flow patterns
+Diogo Costa and A. K. Soares . Urban Water Journal, 2022. 1 citations.
+0% Topic Match
+Abstract: ABSTRACT The correct determination of water consumption is key to increasing hydraulic modeling reliability. In this context, Smart Metering (SM) is an important concept. The SM systems can provide consumption at a customer level and in small intervals of time. In this scenario, the work focused on a residential condominium, in Brazil, where an SM system was implemented. The work uses data obtained to model consumers’ water consumption and proposes a system to detect metering failures and internal water loss. Three models were proposed: one uses Autoregressive Integrated Moving Average (ARIMA) theory, another uses the Seasonal Autoregressive Integrated Moving Average...
+[84] Exploring the Statistical and Distributional Properties of Residential Water Demand at Fine Time Scales
+Panagiotis Kossieris and C. Makropoulos . Water, 2018. 27 citations.
+0% Topic Match
+Abstract: Residential water demand consists one of the most uncertain factors posing extra difficulties in the efficient planning and management of urban water systems. Currently, high resolution data from smart meters provide the means for a better understanding and modelling of this variable at a household level and fine temporal scales. Having this in mind, this paper examines the statistical and distributional properties of residential water demand at a 15-minute and hourly scale, which are the temporal scales of interest for the majority of urban water modeling applications. Towards this, we investigate large residential water demand records of different characteristics. The...
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 23/29[85] Exploiting HMM Sparsity to Perform Online Real-Time Nonintrusive Load Monitoring
+S. Makonin, ..., and L. Bartram . IEEE Transactions on Smart Grid , 2016. 339 citations.
+0% Topic Match
+No summary or abstract available
+[86] Simulating Community Water Use Behavior And Potential Water Conservation Using Detailed End Use Event Data
+Nour A. Attallah and J. Horsburgh . Journal Not Provided, Unknown year. 0 citations.
+0% Topic Match
+No summary or abstract available
+[87] Benefits and challenges of using smart meters for advancing residential water demand modeling and management: A review
+Alessandro Cominola, ..., and A. Rizzoli . Environ. Model. Softw., 2015. 261 citations.
+0% Topic Match
+No summary or abstract available
+[88] Detecting urban water consumption patterns: a time-series clustering approach
+J. Leitão, ..., and A. Cardoso . Water Supply, 2019. 10 citations.
+0% Topic Match
+Abstract:  The need for efficient management of water distribution systems is a growing concern for economic, environmental and social reasons. Water supply systems are commonly designed to ensure adequate behaviour under the worst conditions, such as maximum consumption, which leads to overestimation in supply tanks and energy waste. While overestimation should be considered, to account for unpredictable demands and emergency scenarios, we advocate that a detailed understanding of consumption patterns enables an improvement in water management and is additionally beneficial to correlated resources such as electricity. A novel framework to detect water consumption patterns is developed and applied to an...
+[89] WaterSense: water flow disaggregation using motion sensors
+Vijay Srinivasan, ..., and K. Whitehouse . Proceedings of the Third ACM Workshop on Embedded Sensing Systems for Energy-Efficiency in Buildings, 2011. 44 citations.
+0% Topic Match
+Abstract: Smart water meters will soon provide real-time access to instantaneous water usage in many homes, and disaggregation is the problem of deciding how much of that usage is due to individual fixtures in the home. Existing disaggregation techniques require additional water sensing infrastructure and/or a manual characterization of each water fixture, which can be expensive and time consuming. In this paper, we describe a novel technique called WaterSense to perform fixture-level disaggregation using only a handful of inexpensive motion sensors. WaterSense automatically infers how many fixtures are in each room, and how much water each fixture uses. We evaluate the...
+[90] Scale effects and implications of the stochastic structure of customer water demands
+S. Díaz, ..., and Michael Pointl . Journal of Hydroinformatics , 2024. 1 citations.
+0% Topic Match
+Abstract:  The effect of different temporal (from seconds to months) and spatial aggregation scales (from individual users to full urban areas) on water demand behavior has been explored to a limited degree. The effort described here extends those works by evaluating the scale effects of residential water consumption in a unique US data set that covers 10,000 households with a 1-gallon (3.79 L) hourly resolution over 2 years. A preliminary data analysis and a sequential Principal Component Analysis (PCA) is carried out to assess the effect of different temporal (weekly, daily, hourly) and spatial aggregation (individual meters and groups every...
+[91] Investigating wastewater flow from a gated community to disaggregate indoor and outdoor water use
+J. D. Plessis, ..., and C. Loubser . Journal of Water Sanitation and Hygiene for Development , 2018. 5 citations.
+0% Topic Match
+No summary or abstract available
+[92] Analysis of Domestic Water Consumption Characteristics for Water Usage Purpose
+Sunji Choi, ..., and Sang-hyun Kim . Journal of Korean Society of Water and Wastewater , 2008. 1 citations.
+0% Topic Match
+No summary or abstract available
+[93] Sensing from the basement: a feasibility study of unobtrusive and low-cost home activity recognition
+J. Fogarty, ..., and Scott E. Hudson . Unknown journal, 2006. 217 citations.
+0% Topic Match
+No summary or abstract available
+[94] Identifying the drivers of water consumption: A summary of results from the South East Queensland residential end use study
+C. Beal, ..., and R. Stewart . Unknown journal, 2012. 25 citations.
+0% Topic Match
+No summary or abstract available
+[95] A novel approach for estimating urban water end use characteristics of cities in the developing world
+Kenneth Muniina, ..., and N. Graham . Urban Water Journal, 2017. 5 citations.
+0% Topic Match
+No summary or abstract available
+[96] Smart Metering and Water End-Use Data: Conservation Benefits and Privacy Risks
+D. Giurco, ..., and R. Stewart . Water, 2010. 64 citations.
+0% Topic Match
+Abstract: Smart metering technology for residential buildings is being trialed and rolled out by water utilities to assist with improved urban water management in a future affected by climate change. The technology can provide near real-time monitoring of where water is used in the home, disaggregated by end-use (shower, toilet, clothes washing, garden irrigation, etc.). This paper explores questions regarding the degree of information detail required to assist utilities in targeting demand management programs and informing customers of their usage patterns, whilst ensuring privacy concerns of residents are upheld.
+[97] Detection and interpretation of anomalous water use for non-residential customers
+S. Patabendige, ..., and Wei Liu . Environ. Model. Softw., 2018. 22 citations.
+0% Topic Match
+No summary or abstract available
+[98] Analysis of advanced meter infrastructure data of water consumption in apartment buildings
+Einat Kermany, ..., and Hagai Michaelis . Proceedings of the 19th ACM SIGKDD international conference on Knowledge discovery and data mining, 2013. 15 citations.
+0% Topic Match
+No summary or abstract available
+[99] Daily water demand
+F. Lombardi, ..., and F. Volpi . Ambiente e Agua - An Interdisciplinary Journal of Applied Science , 2018. 4 citations.
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 24/290% Topic Match
+Abstract: This paper develops a model to characterize the demand for domestic water based on its end users' usage habits. The use of individual residential appliances (bathroom sink, toilet, shower, bath, etc.) is interpreted using a probabilistic approach. The paper also applies the model to the distribution network of the municipality of Sparanise, a small city in the province of Caserta, Italy. The results of this application are compared to the real output of the city's actual water reservoir. Flow variability during the day was successfully modelled. A comparison of the simulated and recorded data on a daily level indicates the...
+[100] Measuring water use, conservation, and differences by gender using an inexpensive, high frequency metering system
+J. Horsburgh, ..., and D. Rosenberg . Environ. Model. Softw., 2017. 42 citations.
+0% Topic Match
+No summary or abstract available
+[101] Using smart meters to identify social and technological impacts on residential water consumption
+C. Beal, ..., and Kelly S. Fielding . Water Science & Technology: Water Supply , 2011. 22 citations.
+0% Topic Match
+No summary or abstract available
+[102] The Water Short List: The Most Effective Actions U.S. Households Can Take to Curb Water Use
+Benjamin D. Inskeep and S. Attari . Environment: Science and Policy for Sustainable Development , 2014. 36 citations.
+0% Topic Match
+No summary or abstract available
+[103] Exploring the impacts of tourism and weather on water consumption at different spatiotemporal scales: evidence from a coastal area on the Adriatic Sea (northern Italy)
+Filippo Mazzoni, ..., and M. Franchini . Environmental Research: Infrastructure and Sustainability , 2022. 13 citations.
+0% Topic Match
+Abstract: The growth of tourism in the last decades has left behind a significant footprint on water resources, which is particularly evident in the regions affected by water scarcity or consistent seasonal population fluctuations. However, only limited efforts were spent in evaluating the effects of tourism on water consumption with regard to specific non-residential users such as bathing facilities. The current work aimed at providing an insight into the effects of seaside tourism on water consumption in a case study coastal area in northern Italy that is typically subjected to high tourist fluctuations throughout the year. Analyses were carried out at...
+[104] PressureML: Modelling Pressure Waves to Generate Large-Scale Water-Usage Insights in Buildings
+Tanmaey Gupta, ..., and A. Nambi . Proceedings of the 10th ACM International Conference on Systems for Energy-Efficient Buildings, Cities, and Transportation, 2023. 0 citations.
+0% Topic Match
+Abstract: Several studies have indicated that delivering insights and feedback on water usage has been effective in curbing water consumption, making it a pivotal component in achieving long-term sustainability objectives. Despite a significant proportion of water consumption originating from large residential and commercial buildings, there is a scarcity of cost-effective and easy-to-integrate solutions that provide water usage insights at a reasonable spatio-temporal granularity in such structures. Furthermore, existing methods for disaggregating water usage necessitate training data and rely on frequent data sampling to capture patterns, both of which pose challenges when scaling up and adapting to new environments. In this work,...
+[105] Exploiting Smart Meter Water Consumption Measurements for Human Activity Event Recognition
+Sebastian Wilhelm, ..., and Diane Ahrens . J. Sens. Actuator Networks , 2023. 6 citations.
+0% Topic Match
+Abstract: Human activity event recognition (HAER) within a residence is a topic of significant interest in the field of ambient assisted living (AAL). Commonly, various sensors are installed within a residence to enable the monitoring of people. This work presents a new approach for HAER within a residence by (re-)using measurements from commercial smart water meters. Our approach is based on the assumption that changes in water flow within a residence, specifically the transition from no flow to flow above a certain threshold, indicate human activity. Using a separate, labeled evaluation data set from three households that was collected under controlled/laboratory-like...
+[106] Clustering and Support Vector Regression for Water Demand Forecasting and Anomaly Detection
+Antonio Candelieri. Water, 2017. 121 citations.
+0% Topic Match
+Abstract: This paper presents a completely data-driven and machine-learning-based approach, in two stages, to first characterize and then forecast hourly water demand in the short term with applications of two different data sources: urban water demand (SCADA data) and individual customer water consumption (AMR data). In the first case, reliable forecasting can be used to optimize operations, particularly the pumping schedule, in order to reduce energy-related costs, while in the second case, the comparison between forecast and actual values may support the online detection of anomalies, such as smart meter faults, fraud or possible cyber-physical attacks. Results are presented for a...
+[107] IoT-based Water Disaggregation in IWS System using ML and DL Techniques
+S. Padole, ..., and S. Chaudhari . 2025 17th International Conference on COMmunication Systems and NETworks (COMSNETS) , 2025. 0 citations.
+0% Topic Match
+Abstract: This paper addresses the challenge of water disaggregation in intermediate water supply (IWS) systems using water level data. The water level node, in conjunction with four automatic labelling nodes, was deployed to collect data on appliance usage, no activity periods, and tank filling. Data is collected and transmitted to the cloud at two-second intervals via Wi-Fi networks. The collected water level data are used to train various machine learning (ML) and deep learning (DL) models for disaggregation in filling, appliance use such as geyser, flush, washing machine, and periods of no activity. These models are then evaluated to determine the...
+[108] Large Landscape Urban Irrigation: A DataDriven Approach to Evaluate Conservation Behavior
+Kimberly J. Quesnel and N. Ajami . Water Resources Research , 2019. 15 citations.
+0% Topic Match
+Abstract: Nonresidential irrigation is a unique and important yet understudied urban water sector. Knowing how urban irrigators use water is critical for projecting future demands, planning diverse supply portfolios, and designing conservation strategies. In this study, we developed a holistic, analytical approach to advance knowledge about the temporal and spatial dimensions of nonresidential outdoor water use, also known as large landscape irrigation. Our approach employed data from two forthcoming technologies: dedicated irrigation meters and smart meters (i.e., advanced metering infrastructure). We then applied our methodology to a case study city in the San Francisco Bay Area, California, from 2013 to 2016...
+[109] Simulating Nonresidential Water Demand with a Stochastic End-Use Model
+E. Blokker, ..., and J. V. Dijk . Journal of Water Resources Planning and Management , 2013. 323 citations.
+0% Topic Match
+No summary or abstract available
+[110] Public Perceptions of Household IoT Smart Water “Event” Meters in the UK—Implications for Urban Water Governance
+A. Goulas, ..., and H. Smith . Unknown journal, 2022. 4 citations.
+0% Topic Match
+Abstract: Cities around the world are facing water availability challenges, intensified by increasing populations and climate change. Technology, such as household smart meters measuring domestic water consumption, can play a role in demand management, yet a deeper understanding of public expectations and the practicalities of city-wide implementation is required. This article explores public perceptions of smart water meters that use Internet of Things (IoT) technology and machine learning to profile household water use “events” and anomalies. By leveraging insights from an online survey implemented in the UK (n = 558), this article explores factors influencing the likelihood of citizens choosing to...
+[111] A systematic review of municipal smart water for climate adaptation and mitigation
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 25/29Allison Lassiter and Nicole D. Leonard . Environment and Planning B: Urban Analytics and City Science , 2022. 7 citations.
+0% Topic Match
+Abstract: This study examines how research on smart water is contributing to climate-resilient municipal water systems around the globe. We identify smart water research trends over time, relationships with climate adaptation and mitigation goals, and applicability to places with developed or developing water and electrical infrastructure. To do so, we systematically review the literature, identifying research on Information Communication Technology-enabled technologies related to water supply, wastewater, and stormwater management. We assess the relationship between each study and climate adaptation and mitigation objectives: managing greater variation in water quantity, leading to scarcity and increased stormwater; managing declining water quality; and low-carbon water...
+[112] Capturing high-resolution water demand data in commercial buildings
+P. Melville-Shreeve, ..., and D. Butler . Journal of Hydroinformatics , 2021. 13 citations.
+0% Topic Match
+Abstract: Water demand measurements have historically been conducted manually, from meter readings less than once per month. Leading water service providers have begun to deploy smart meters to collect high-resolution data. A low-cost flush counter was developed and connected to a real-time monitoring platform for 119 ultra-low flush toilets in 7 buildings on a university campus to explore how building users influence water demand. Toilet use followed a typical weekly pattern in which weekday use was 92%± 4 higher than weekend use. Toilet demand was higher during term time and showed a strong, positive relationship with the number of building occupants....
+[113] Empowering personalized feedback on hot water usage: a field study with shower meters
+Sebastian A. Günther, ..., and T. Staake . Proceedings of the 35th Annual ACM Symposium on Applied Computing , 2020. 0 citations.
+0% Topic Match
+Abstract: Digitalization enables an ever-increasing opportunity to promote resource conservation by providing timely consumption feedback to individuals. Yet, in multi-person households, appliances and fixtures are often shared, which makes it difficult to deliver person-specific feedback for each user. In this paper, we tackle this problem for household's most energy-intensive day-to-day activity - showering - by leveraging granular water consumption data. To this end, we collected labeled time series data of 691 shower events from 28 individuals, defined features, implemented and adjusted several classifiers, and analyzed the feasibility of our identification approach. Across all locations, the results - which were evaluated with...
+[114] A Low-Cost, Open Source Monitoring System for Collecting High Temporal Resolution Water Use Data on Magnetically Driven Residential Water Meters
+Camilo J. Bastidas Pacheco, ..., and Robb J. Tracy . Sensors (Basel, Switzerland) , 2020. 11 citations.
+0% Topic Match
+Abstract: We present a low-cost (H$150) monitoring system for collecting high temporal resolution residential water use data without disrupting the operation of commonly available water meters. This system was designed for installation on top of analog, magnetically driven, positive displacement, residential water meters and can collect data at a variable time resolution interval. The system couples an Arduino Pro microcontroller board, a datalogging shield customized for this specific application, and a magnetometer sensor. The system was developed and calibrated at the Utah Water Research Laboratory and was deployed for testing on five single family residences in Logan and Providence, Utah, for...
+[115] Efficient Discovery of Recurrent Routine Behaviours in Smart Meter Time Series by Growing Subsequences
+Jin Wang, ..., and Wei Liu. Unknown journal, 2015. 4 citations.
+0% Topic Match
+No summary or abstract available
+[116] Water Consumption Analysis for Real-Time Leakage Detection in the Context of a Smart Tertiary Building
+Aida Boudhaouia and P. Wira . 2018 International Conference on Applied Smart Systems (ICASS) , 2018. 12 citations.
+0% Topic Match
+Abstract: Water leaks are considered as abnormal consumptions of water. It is a challenge to detect them instantaneously but recent wireless smart water meters offer new opportunities for remote monitoring and controlling of consumptions and leaks. This paper presents a complete solution that consists in collecting and analyzing water consumption data. This non-intrusive solution relies on information extracted from measurements taken on a single and centralized part of a distribution network. We propose a generic approach which is based on a formal representation of water consumption data. It is made of several models and features that are representative of extremely large...
+[117] End use water consumption in households: impact of socio-demographic factors and efficient devices
+Rachelle M. Willis, ..., and Alireza Mousavinejad . Journal of Cleaner Production , 2013. 306 citations.
+0% Topic Match
+No summary or abstract available
+[118] Private memoirs of a smart meter
+Andres Molina-Markham, ..., and David E. Irwin . Proceedings of the 2nd ACM Workshop on Embedded Sensing Systems for Energy-Efficiency in Building, 2010. 571 citations.
+0% Topic Match
+No summary or abstract available
+[119] Water saving potential of domestic water reuse systems using greywater and rainwater in combination
+A. Dixon, ..., and A. Fewkes . Water Science and Technology , 1999. 228 citations.
+0% Topic Match
+No summary or abstract available
+[120] Predicting and understanding residential water use with interpretable machine learning
+Benjamin A. Rachunok, ..., and S. Fletcher . Environmental Research Letters , 2023. 6 citations.
+0% Topic Match
+Abstract: Predicting residential water use is critical to efficiently manage urban water resource systems. Simultaneously, understanding the factors driving residential water use is required to plan for future urban change and achieve effective water resource management. Current approaches examining residential water use identify the drivers of household water use through parametric or non-parametric statistical approaches. Parametric approaches have high predictive errors and lack the ability to accurately capture interactions between features but allow for easy interpretation. Non-parametric approaches have lower predictive errors and can capture non-linear feature interactions but do not allow for easy interpretation. We use non-parametric statistical models of...
+[121] FlowSignature Analysis of Water Consumption in Nonresidential Building Water Networks Using HighResolution and MediumResolution Smart Meter Data: Two Case Studies
+E. Clifford, ..., and Louise Hannon . Water Resources Research , 2018. 30 citations.
+0% Topic Match
+No summary or abstract available
+[122] End-use disaggregation in commercial buildings with the building automation system trend data
+N. Zaeri, ..., and Ian Wilton . Building Simulation Conference Proceedings , 2021. 0 citations.
+0% Topic Match
+Abstract: End-use submetering is essential for energy management in large commercial and institutional buildings. However, most existing buildings lack adequate sub-metering even for major end-uses. End-use disaggregation techniques o er an untapped opportunity to supplement deciencies in a metering network. This study presents an end-use disaggregation method for commercial buildings by using building automation system (BAS) data. The BAS trend data provide contextual information about the operational state of major energy-consuming systems and equipment such as fans, pumps, air handling unit (AHU) heating and cooling coils, and chillers. The method applies a series of multiple linear regression models dis-aggregating bulk metered heating,...
+[123] Contextualising Water Use in Residential Settings: A Survey of Non-Intrusive Techniques and Approaches
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 26/29Davide Carboni, ..., and T. Beach . Sensors (Basel, Switzerland) , 2016. 37 citations.
+0% Topic Match
+Abstract: Water monitoring in households is important to ensure the sustainability of fresh water reserves on our planet. It provides stakeholders with the statistics required to formulate optimal strategies in residential water management. However, this should not be prohibitive and appliance-level water monitoring cannot practically be achieved by deploying sensors on every faucet or water-consuming device of interest due to the higher hardware costs and complexity, not to mention the risk of accidental leakages that can derive from the extra plumbing needed. Machine learning and data mining techniques are promising techniques to analyse monitored data to obtain non-intrusive water usage disaggregation....
+[124] Modeling the behavior of water reservoir operators via eigenbehavior analysis
+M. Giuliani and J. Herman . Advances in Water Resources , 2018. 21 citations.
+0% Topic Match
+No summary or abstract available
+[125] Water demand management research: A psychological perspective
+S. Russell and Kelly S. Fielding . Water Resources Research , 2010. 307 citations.
+0% Topic Match
+No summary or abstract available
+[126] A Simple Security Architecture for Smart Water Management System
+N. Ntuli and A. Abu-Mahfouz . Unknown journal, 2016. 80 citations.
+0% Topic Match
+No summary or abstract available
+[127] Estimating residential hot water consumption from smart electricity meter data
+Joseph Loend A-Namba Bongungu, ..., and A. Stillwell . Environmental Research: Infrastructure and Sustainability , 2020. 9 citations.
+0% Topic Match
+Abstract: Residential water heating is among the most energy-intensive aspects of the water sector; however, residential hot water use is often poorly quantified. Estimating hot water consumption from smart electricity meter data can help advance the body of knowledge regarding the residential energy-water nexus by employing data to fill this knowledge gap, potentially promoting community resilience through energy and water resources efficiency. Using a non-intrusive load monitoring algorithm calibrated with fine-resolution data, we disaggregated electricity for water heating from half-hourly smart electricity meter data, demonstrated with data organized at the zip code level for areas in the city of Chicago. From...
+[128] A generalizable approach to imbalanced classification of residential electric space heat
+Christopher Lee, ..., and A. Stillwell . Environmental Research: Infrastructure and Sustainability , 2024. 0 citations.
+0% Topic Match
+Abstract: Changes in climate and energy technologies motivate a greater understanding of residential electricity usage and its relation to weather conditions. The recent proliferation of smart electricity meters promises an influx of new datasets spanning diverse cities, geographies, and climates worldwide. However, although analytics for smart meters is a rapidly expanding field of research, issues such as generalizability to new data and robustness to data quality remain underexplored in the literature. We characterize residential electricity consumption patterns from a large, uncurated testbed of smart electricity meter data, revealing challenges in adapting existing methodologies to datasets with different scopes and locations. We...
+[129] Unsupervised Disaggregation of Water Heater Load from Smart Meter Data Processing
+Thierry Zufferey, ..., and G. Hug . ArXiv, 2021. 8 citations.
+0% Topic Match
+Abstract: In the residential sector, electric water heaters are appliances with a relatively high power consumption and a significant thermal inertia, which is particularly suitable for Demand Response schemes. The success of efficient DR schemes via the control of water heaters presupposes an accurate estimate of their power demand at each instant. Although the load of water heaters is rarely directly measured, a large penetration of Smart Meters (SMs) in distribution grids enables to indirectly infer this information on a large scale via load disaggregation. For that purpose, a considerable number of Non-Intrusive Load Monitoring (NILM) approaches are suggested in the...
+[130] Stochastic simulation of residential building occupant-driven energy use in a bottom-up model of the U.S. housing stock
+Jianli Chen, ..., and O. Olawale . ArXiv, 2021. 2 citations.
+0% Topic Match
+Abstract: The residential buildings sector is one of the largest electricity consumers worldwide and contributes disproportionally to peak electricity demand in many regions. Strongly driven by occupant activities at home, household energy consumption is stochastic and heterogeneous in nature. However, most residential building energy models applied by industry use homogeneous, deterministic occupant activity schedules, which work well for predictions of annual energy consumption, but can result in unrealistic hourly or sub-hourly electric load profiles, with exaggerated or muted peaks. This mattered less in the past, but the increasing proportion of variable renewable energy generators in power systems means that representing the...
+[131] Real-Time Recognition Non-Intrusive Electrical Appliance Monitoring Algorithm for a Residential Building Energy Management System
+K. A. Agyeman, ..., and Soohee Han . Energies, 2015. 34 citations.
+0% Topic Match
+Abstract: The concern of energy price hikes and the impact of climate change because of energy generation and usage forms the basis for residential building energy conservation. Existing energy meters do not provide much information about the energy usage of the individual appliance apart from its power rating. The detection of the appliance energy usage will not only help in energy conservation, but also facilitate the demand response (DR) market participation as well as being one way of building energy conservation. However, energy usage by individual appliance is quite difficult to estimate. This paper proposes a novel approach: an unsupervised disaggregation...
+[132] Is disaggregation the holy grail of energy efficiency? The case of electricity
+K. Armel, ..., and Adrian Albert . Energy Policy, 2013. 627 citations.
+0% Topic Match
+No summary or abstract available
+[133] Identifying Electric Water Heaters from Low-Resolution Smart Meter Data
+Markus Kreft, ..., and T. Staake . 2024 IEEE Conference on Technologies for Sustainability (SusTech) , 2024. 1 citations.
+0% Topic Match
+Abstract: Despite an increasing share of heat pumps, electric water heaters are still widely used in residential applications. Their high connected load and energy consumption combined with their thermal inertia make them ideal candidates for demand response and energy saving programs. However, due to missing or outdated information about installation locations, it is difficult to run large and targeted campaigns. Thanks to an increased roll-out of advanced metering infrastructure, smart meter data is widely available, opening new opportunities to generate the missing information. In our work, we identify electric water heaters from lowresolution smart meter data with a 15-minute sampling rate...
+[134] A review of residential water conservation tool performance and influences on implementation effectiveness
+David Inman and P. Jeffrey . Urban Water Journal, 2006. 279 citations.
+0% Topic Match
+No summary or abstract available
+[135] Analyzing and modeling occupant behavior by inverse problems with smart meter data
+Kazuki Nishizawa, ..., and Kazuya Togawa . Building Simulation Conference Proceedings , 2023. 0 citations.
+0% Topic Match
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 27/29Abstract: With the increasing use of smart meters worldwide, detailed data on electricity consumption are now available. In this study, we calibrated the parameters for a bottom-up model related to occupant behavior and the operation of heating and cooling equipment by solving inverse problems with smart meter data. The Wasserstein distance between the distributions of estimated and measured electricity consumption was used to reproduce the average electricity consumption of target households and the variation of the households with good accuracy. Using this model, we can estimate trends in occupant behavior based on smart meter data, which is useful for planning energy...
+[136] SVM-Based Segmentation of Home Appliance Energy Measurements
+Marc Wenninger, ..., and Jochen Schmidt . 2019 18th IEEE International Conference On Machine Learning And Applications (ICMLA) , 2019. 6 citations.
+0% Topic Match
+Abstract: Generating a more detailed understanding of domestic electricity demand is a major topic for energy suppliers and householders in times of climate change. Over the years there have been many studies on consumption feedback systems to inform householders, disaggregation algorithms for Non-Intrusive-Load-Mon-itoring (NILM), Real-Time-Pricing (RTP) to promote supply aware behavior through monetary incentives and appliance usage prediction algorithms. While these studies are vital steps towards energy awareness, one of the most fundamental challenges has not yet been tackled: Automated detection of start and stop of usage cycles of household appliances. We argue that most research efforts in this area will...
+[137] Energy Disaggregation with Semi-supervised Sparse Coding
+Mengheng Xue, ..., and David K. A. Mordecai . ArXiv, 2020. 1 citations.
+0% Topic Match
+Abstract: Residential smart meters have been widely installed in urban houses nationwide to provide efficient and responsive monitoring and billing for consumers. Studies have shown that providing customers with device-level usage information can lead consumers to economize significant amounts of energy, while modern smart meters can only provide informative whole-home data with low resolution. Thus, energy disaggregation research which aims to decompose the aggregated energy consumption data into its component appliances has attracted broad attention. In this paper, a discriminative disaggregation model based on sparse coding has been evaluated on large-scale household power usage dataset for energy conservation. We utilize a...
+[138] Security and Privacy Challenges in the Smart Grid
+P. Mcdaniel and Stephen E. McLaughlin . IEEE Security & Privacy, 2009. 1199 citations.
+0% Topic Match
+No summary or abstract available
+[139] Noninvasive Detection of Appliance Utilization Patterns in Residential Electricity Demand
+F. Villar, ..., and L. C. D. da Silva . Energies, 2021. 5 citations.
+0% Topic Match
+Abstract: Smart meters with automatic meter reading functionalities are becoming popular across the world. As a result, load measurements at various sampling frequencies are now available. Several methods have been proposed to infer device usage characteristics from household load measurements. However, many techniques are based on highly intensive computations that incur heavy computational costs; moreover, they often rely on private household information. In this paper, we propose a technique for the detection of appliance utilization patterns using low-computational-cost algorithms that do not require any information about households. Appliance utilization patterns are identified only from the system status behavior, represented by large...
+[140] Eigenbehaviors: identifying structure in routine
+N. Eagle and A. Pentland. Behavioral Ecology and Sociobiology , 2009. 489 citations.
+0% Topic Match
+No summary or abstract available
+[141] Estimating and Verifying United States Households' Potential to Conserve Water
+Francisco J. Suero, ..., and D. Rosenberg . Journal of Water Resources Planning and Management , 2012. 32 citations.
+Not measured Topic Match
+No summary or abstract available
+[142] Heterogeneous Residential Water and Energy Linkages and Implications for Conservation and Management
+A. Abdallah and D. Rosenberg . Water Resources Planning and Management , 2014. 64 citations.
+Not measured Topic Match
+No summary or abstract available
+[143] Exploiting high-resolution data to investigate the characteristics of water consumption at the end-use level: A Dutch case study
+Filippo Mazzoni, ..., and M. Blokker . Water Resources and Industry , 2023. 16 citations.
+Not measured Topic Match
+No summary or abstract available
+[144] An empirical water consumer segmentation and the characterisation of consumption patterns underpinning demand peaks
+Halidu Abu-Bakar, ..., and S. Hallett . Resources Conservation and Recycling , 2021. 10 citations.
+Not measured Topic Match
+No summary or abstract available
+[145] Ten questions concerning water quality in building hot water systems
+Katherine Alfredo, ..., and Tim Bartrand . Building and Environment , 2025. 1 citations.
+Not measured Topic Match
+No summary or abstract available
+[146] A Machine Learning-based framework and open-source software for Non Intrusive Water Monitoring
+Marie-Philine Gross, ..., and Andrea Cominola . Environ. Model. Softw., 2024. 2 citations.
+Not measured Topic Match
+No summary or abstract available
+[147] A hybrid model of machine learning for classifying household water-consumption behaviors
+Miao Wang, ..., and Chunyan Wang . Cleaner and Responsible Consumption , 2025. 1 citations.
+Not measured Topic Match
+No summary or abstract available
+[148] A Privacy-Preserving Framework Using Homomorphic Encryption for Smart Metering Systems
+Weiyan Xu, ..., and Jin B. Hong . Sensors (Basel, Switzerland) , 2023. 16 citations.
+Not measured Topic Match
+Abstract: Smart metering systems (SMSs) have been widely used by industrial users and residential customers for purposes such as real-time tracking, outage notification, quality monitoring, load forecasting, etc. However, the consumption data it generates can violate customers’ privacy through absence detection or behavior recognition. Homomorphic encryption (HE) has emerged as one of the most promising methods to protect data privacy based on its security guarantees and computability over encrypted data. However, SMSs have various application scenarios in practice. Consequently, we used the concept of trust boundaries to help design HE solutions for privacy protection under these different scenarios of SMSs. This...
+[149] Smart Water Meters Can Save Lives during the COVID-19 Pandemic
+Elad Salomons and M. Housh . Journal of Water Resources Planning and Management , 2022. 2 citations.
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 28/29Not measured Topic Match
+Abstract: Forum papers are thought-provoking opinion pieces or essays founded in fact, sometimes containing speculation, on a civil engineering topic of general interest and relevance to the readership of the journal. The views expressed in this Forum article do not necessarily reflect the views of ASCE or the Editorial Board of the journal.
+[150] Towards a smart water city: A comprehensive review of applications, data requirements, and communication technologies for integrated management
+Martin Oberascher, ..., and R. Sitzenfrei . Sustainable Cities and Society , 2022. 106 citations.
+Not measured Topic Match
+No summary or abstract available
+[151] Smart meters data for modeling and forecasting water demand at the user-level
+Jorge E. Pesantez, ..., and N. Kaza . Environ. Model. Softw., 2020. 74 citations.
+Not measured Topic Match
+No summary or abstract available
+[152] Understanding water consumption in a semi-permanent residential context through university student housing showers
+Victoria V. Otrubina, ..., and A. Stillwell . Environmental Research: Infrastructure and Sustainability , 2025. 0 citations.
+Not measured Topic Match
+Abstract: Understanding shower habits is critical for developing effective residential water conservation and efficiency strategies. Previous research has focused on single-family homes, but less is known about shower behavior among college-aged individuals in university student housing. This study examines the shower habits of students at the University of Illinois Urbana-Champaign, comparing them with U.S. single-family residential households regarding shower duration, time-of-day, and day-of-week. Using Conditional Tabular Generative Adversarial Networks to generate synthetic data, we address sample size limitations and confirm the validity of our results. Our findings reveal that student housing showers tend to be longer in duration and more variable...
+[153] User’s perspective in smart meter research: State-of-the-art and future trends
+Jonathan Gumz and D. Fettermann . Energy and Buildings, 2024. 11 citations.
+Not measured Topic Match
+No summary or abstract available
+[154] Transforming residential water end use analysis: unleashing insights from widespread low-resolution smart metering data.
+K. Nguyen, ..., and Hong Zhang . Water research, 2025. 1 citations.
+Not measured Topic Match
+No summary or abstract available
+[155] The determinants of household water consumption: A review and assessment framework for research and practice
+A. Cominola, ..., and A. Castelletti . npj Clean Water, 2023. 45 citations.
+Not measured Topic Match
+Abstract: Achieving a thorough understanding of the determinants of household water consumption is crucial to support demand management strategies. Yet, existing research on household water consumption determinants is often limited to specific case studies, with findings that are difficult to generalize and not conclusive. Here, we first contribute an updated framework for review, classification, and analysis of the literature on the determinants of household water consumption. Our framework allows trade-off analysis of different criteria that account for the representation of a potential water consumption determinant in the literature, its impact across heterogeneous case studies, and the effort required to collect information...
+[156] Contextualising household water consumption patterns in England: A socio-economic and socio-demographic narrative
+Halidu Abu-Bakar, ..., and S. Hallett . Cleaner and Responsible Consumption , 2023. 13 citations.
+Not measured Topic Match
+No summary or abstract available
+[157] Long-term water conservation is fostered by smart meter-based feedback and digital user engagement
+A. Cominola, ..., and A. Rizzoli . npj Clean Water, 2021. 49 citations.
+Not measured Topic Match
+Abstract: Consumption-based feedback has been demonstrated to encourage water conservation behaviors. Smart meters and digital solutions can support customized feedback and reinforce behavioral change. Yet, most of the studies documenting water conservation effects induced by feedback and smart meter data visualization evaluate them in short-term experimental trials only. Here we show that water conservation behaviors promoted by smart meter-based consumption feedback and digital user engagement interventions might persist in the long term. We developed an analysis of 334 households in Valencia, Spain. We find that approximately 47% of the households engaged in our water conservation program achieved a long-term 8% reduction...
+[158] Hedging for Privacy in Smart Water Meters
+Elad Salomons, ..., and M. Housh . Water Resources Research , 2020. 18 citations.
+Not measured Topic Match
+Abstract: Smart water meters at household connections are being installed in large numbers throughout the world due to the benefits they are expected to bring to the water utilities and water consumers. Smart metering provides highresolution readings and promises benefits to the water utilities, such as demand forecasting, regulating timeofuse watering, and making intelligent operation and planning decisions. For the consumers, smart metering promises improved billing and demand reduction by providing detailed and timely information about their water use and early notification of possible water leaks in their premises. However, the finegrained information collected by smart meters raises growing concerns of...
+[159] Rethinking the Framework of Smart Water System: A Review
+Jiada Li, ..., and R. Sitzenfrei . Water, 2020. 76 citations.
+Not measured Topic Match
+Abstract: Throughout the past years, governments, industries, and researchers have shown increasing interest in incorporating smart techniques, including sensor monitoring, real-time data transmitting, and real-time controlling into water systems. However, the design and construction of such a smart water system are still not quite standardized for massive applications due to the lack of consensus on the framework. The major challenge impeding wide application of the smart water network is the unavailability of a systematic framework to guide real-world design and deployment. To address this challenge, this review study aims to facilitate more extensive adoption of the smart water system, to increase...
+[160] SMART WATER METERING AND AI FOR UTILITY OPERATIONS AND CUSTOMER ENGAGEMENT: DISRUPTION OR INCREMENTAL INNOVATION?
+BY Andrea Cominola, ..., and R. Stewart . Journal Not Provided, 2020. 7 citations.
+Not measured Topic Match
+No summary or abstract available
+[161] AI–BASED EVENT MANAGEMENT AT UNITED UTILITIES
+M. Romano and Shaun Boatwright . Journal Not Provided, 2020. 1 citations.
+Not measured Topic Match
+No summary or abstract available
+[162] WEUSEDTO - Water End USE Dataset and TOols: An open water end use consumption dataset and data analytics tools
+A. D. Mauro, ..., and A. Nardo . SoftwareX, 2022. 5 citations.
+Not measured Topic Match
+
+UndermindREPORT CREATED ON15/11/2025
+View this report online at:https://app.undermind.ai/report/cc6fe26e6d37a6c3f3bbe1f6179cf538e715bfa04787aece228888c0ed166617 Page 29/29No summary or abstract available
+[163] Activity and resolution aware privacy protection for smart water meter databases
+Rachel Cardell-Oliver, ..., and Jin B. Hong . Internet Things, 2024. 2 citations.
+Not measured Topic Match
+No summary or abstract available
+[164] Uncovering urban water consumption patterns through time series clustering and entropy analysis.
+Renfang Wang, ..., and X. Liu . Water research, 2024. 15 citations.
+Not measured Topic Match
+No summary or abstract available
+

@@ -1,0 +1,42 @@
+# =============================================================================
+# Water Demand Behavioral Profiling - Conda Environment
+# =============================================================================
+# Create with: conda env create -f environment.yml
+# Activate with: conda activate water-profiling
+# =============================================================================
+
+name: water-profiling
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Python version
+  - python=3.10
+  
+  # Core Scientific Computing
+  - numpy>=1.21
+  - pandas>=1.3
+  - scipy>=1.7
+  
+  # Machine Learning
+  - scikit-learn>=1.0
+  
+  # Visualization
+  - matplotlib>=3.4
+  - seaborn>=0.11
+  
+  # Statistical Analysis
+  - statsmodels>=0.13
+  
+  # Progress Bars
+  - tqdm>=4.62
+  
+  # Jupyter (optional)
+  - jupyter
+  - notebook
+  
+  # Pip dependencies
+  - pip
+  - pip:
+    - shap>=0.40.0
