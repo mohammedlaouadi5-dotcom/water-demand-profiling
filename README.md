@@ -176,18 +176,23 @@ python src/visualization/generate_manuscript_figures.py
 python src/visualization/generate_supplementary_figures.py
 ```
 
-## 📊 Data Requirements
+## 📊 Data Source & Availability
 
-The framework expects survey data with the following structure:
+This research utilizes the **Water Usage Survey** dataset provided by **Yorkshire Water** via Data Mill North.
 
-| Column Type | Examples |
-|-------------|----------|
-| Behavioral frequencies | `showers_per_week`, `baths_per_week`, `boil_water_per_week` |
-| Appliance ownership | `has_dishwasher`, `has_washing_machine` |
-| Infrastructure | `leak_presence`, `tap_type` |
-| Demographics | `household_size`, `dwelling_type` |
+- **Source**: [Data Mill North - Water Usage Survey](https://datamillnorth.org/dataset/water-usage-survey-vqx94)
+- **Period**: December 2018 to March 2020
+- **Sample Size**: 13,819 anonymised household responses
+- **Region**: Yorkshire, UK
 
-**Note**: Original survey data is not included due to privacy restrictions. Contact the corresponding author for data access requests.
+> **Description**: The dataset provides insight into consumption trends across the region, including behavioral frequencies, appliance ownership, and demographic data. It was compiled to provide customers with bespoke dashboards for water conservation.
+
+### Privacy & Ethics
+The data is fully anonymised. For information on data processing:
+- **Privacy Notice**: [Yorkshire Water Legal](https://www.yorkshirewater.com/legal)
+- **Partner Privacy**: [Save Water Save Money](https://www.aqkwa.co.uk/en/privacy)
+
+**Note**: The raw data files are not included in this repository to respect privacy protocols. Researchers may access the original dataset directly via the Data Mill North link above.
 
 ## 📈 Reproducibility
 
