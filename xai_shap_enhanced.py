@@ -17,8 +17,8 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Paths
-DATA_PATH = r'c:\Users\moham\Desktop\New folder\profiling\data_science_profiling\clustered_data_enhanced.csv'
-OUTPUT_DIR = r'c:\Users\moham\Desktop\New folder\profiling\data_science_profiling'
+DATA_PATH = r'clustered_data_enhanced.csv'
+OUTPUT_DIR = r'profiling'
 
 def load_and_prepare_data():
     """Load data and prepare for SHAP analysis"""
