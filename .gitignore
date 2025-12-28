@@ -145,9 +145,30 @@ docs/_build/
 site/
 
 # =============================================================================
-# Manuscript Files (Keep LaTeX source, ignore compiled)
+# Manuscript and Working Files (IGNORED)
 # =============================================================================
-# Keep these for the paper
-# MANUSCRIPT_*.tex
-# TITLE_PAGE.tex
-# DECLARATION_OF_INTEREST.tex
+MANUSCRIPT_*
+TITLE_PAGE*
+DECLARATION_OF_INTEREST*
+FINAL_*
+JOURNAL_*
+WORD_REDUCTION_PLAN.md
+SECOND_REVIEW_FIXES.md
+REVISED_ARTICLE_OUTLINE.md
+instructions*
+literature_*
+undermind_*
+About Journal.md
+Guide for authors.md
+Water Science and Engineering Guidance*
+declaration-of-competing-interests.md
+GITHUB_GUIDE.md
+*.doc
+*.docx
+*.pdf
+*.tex
+*.md
+!README.md
+!CONTRIBUTING.md
+!LICENSE
+
