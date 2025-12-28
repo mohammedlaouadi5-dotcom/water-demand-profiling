@@ -86,5 +86,5 @@ def run_comprehensive_validation(df, cluster_col='Cluster', output_path='validat
 
 if __name__ == "__main__":
     # Test run
-    df = pd.read_csv(r'c:\Users\moham\Desktop\New folder\profiling\data_science_profiling\clustered_data_optimized.csv')
+    df = pd.read_csv(r'clustered_data_optimized.csv')
     run_comprehensive_validation(df)
