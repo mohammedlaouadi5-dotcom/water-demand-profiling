@@ -14,8 +14,8 @@ import os
 import warnings
 
 # Configuration
-FILE_PATH = r'c:\Users\moham\Desktop\New folder\profiling\data_science_profiling\ca31a900-d51f-11f0-8600-af36ab325207.csv'
-OUTPUT_DIR = r'c:\Users\moham\Desktop\New folder\profiling\data_science_profiling'
+FILE_PATH = r'ca31a900-d51f-11f0-8600-af36ab325207.csv'
+OUTPUT_DIR = r'profiling'
 RANDOM_SEED = 42
 
 # Optimization Ranges (Phase 1: Diagnostic approfondi)
