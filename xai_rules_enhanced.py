@@ -16,8 +16,8 @@ from sklearn.metrics import confusion_matrix, classification_report, accuracy_sc
 import os
 
 # Paths
-DATA_PATH = r'c:\Users\moham\Desktop\New folder\profiling\data_science_profiling\clustered_data_enhanced.csv'
-OUTPUT_DIR = r'c:\Users\moham\Desktop\New folder\profiling\data_science_profiling'
+DATA_PATH = r'clustered_data_enhanced.csv'
+OUTPUT_DIR = r'profiling'
 
 def load_data():
     """Load and prepare data"""
