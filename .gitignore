@@ -1,174 +1,44 @@
 # =============================================================================
-# Python
+# STRICT REPOSITORY CLEANUP
+# Ignore EVERYTHING by default
 # =============================================================================
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+*
 
 # =============================================================================
-# Virtual Environments
+# ALLOWLIST (Files to Keep)
 # =============================================================================
-venv/
-ENV/
-env/
-.venv/
-.conda/
 
-# =============================================================================
-# IDEs and Editors
-# =============================================================================
-.idea/
-.vscode/
-*.swp
-*.swo
-*~
-.spyderproject
-.spyproject
-.ropeproject
-
-# =============================================================================
-# Jupyter Notebooks
-# =============================================================================
-.ipynb_checkpoints/
-*.ipynb_checkpoints
-
-# =============================================================================
-# Data Files (Privacy)
-# =============================================================================
-data/raw/
-data/processed/*.csv
-*.csv
+# 1. Documentation
+!README.md
+!LICENSE
+!CONTRIBUTING.md
 !requirements.txt
 !environment.yml
+!.gitignore
+!REPO_MANIFEST.md
 
-# Specific data files
-clustered_data*.csv
-nmf_W_matrix*.csv
-survey_data*.csv
-household_data*.csv
+# 2. Final Python Code (Enhanced versions only)
+!xclustering_pipeline_enhanced.py
+!xai_shap_enhanced.py
+!xai_rules_enhanced.py
+!statistical_enhancement.py
+!visualization_utils.py
+!src/
+!src/__init__.py
 
-# =============================================================================
-# Output Files
-# =============================================================================
-results/
-outputs/
-logs/
-*.log
+# 3. Main Figures (PNG)
+!Figure1_Cluster_Visualization.png
+!Figure2_Cluster_Profiles_Radar.png
+!Figure3_NMF_Component_Selection.png
+!Figure4_SHAP_Importance.png
+!Figure5_Validation_Metrics.png
+!Figure6_Analytical_Pipeline.png
 
-# =============================================================================
-# Figures (Large Files)
-# =============================================================================
-# Uncomment if you don't want to track figures
-# figures/
-*.tiff
-*.tif
-*.bmp
-
-# =============================================================================
-# LaTeX
-# =============================================================================
-*.aux
-*.bbl
-*.blg
-*.fdb_latexmk
-*.fls
-*.lof
-*.lot
-*.out
-*.toc
-*.synctex.gz
-*.synctex(busy)
-
-# =============================================================================
-# OS Files
-# =============================================================================
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-desktop.ini
-
-# =============================================================================
-# Secrets and Credentials
-# =============================================================================
-.env
-.env.local
-*.pem
-*.key
-secrets/
-credentials/
-
-# =============================================================================
-# Temporary Files
-# =============================================================================
-*.tmp
-*.temp
-*.bak
-*.backup
-
-# =============================================================================
-# Coverage and Testing
-# =============================================================================
-.coverage
-htmlcov/
-.pytest_cache/
-.tox/
-.nox/
-coverage.xml
-*.cover
-.hypothesis/
-
-# =============================================================================
-# Documentation
-# =============================================================================
-docs/_build/
-site/
-
-# =============================================================================
-# Manuscript and Working Files (IGNORED)
-# =============================================================================
-MANUSCRIPT_*
-TITLE_PAGE*
-DECLARATION_OF_INTEREST*
-FINAL_*
-JOURNAL_*
-WORD_REDUCTION_PLAN.md
-SECOND_REVIEW_FIXES.md
-REVISED_ARTICLE_OUTLINE.md
-instructions*
-literature_*
-undermind_*
-About Journal.md
-Guide for authors.md
-Water Science and Engineering Guidance*
-declaration-of-competing-interests.md
-GITHUB_GUIDE.md
-*.doc
-*.docx
-*.pdf
-*.tex
-*.md
-!README.md
-!CONTRIBUTING.md
-!LICENSE
-
+# 4. Supplementary Figures (PNG)
+!FigureS1_Normality_Diagnostics.png
+!FigureS2_Correlation_Heatmap.png
+!FigureS3_GMM_BIC_Curve.png
+!FigureS4_Cluster_Distribution.png
+!FigureS5_Feature_Distributions.png
+!FigureS6_Interaction_Effects.png
+!FigureS7_Boxplots.png
