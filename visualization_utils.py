@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-OUTPUT_DIR = r'c:\Users\moham\Desktop\New folder\profiling\data_science_profiling'
+OUTPUT_DIR = r'profiling'
 
 def plot_optimization_results(results_path):
     """Plots stability and silhouette scores from the grid search."""
